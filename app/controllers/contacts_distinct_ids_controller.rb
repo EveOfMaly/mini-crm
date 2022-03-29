@@ -1,0 +1,2 @@
+class ContactsDistinctIdsController < ApplicationController
+end

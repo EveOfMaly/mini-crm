@@ -1,0 +1,2 @@
+module ContactsDistinctIdsHelper
+end

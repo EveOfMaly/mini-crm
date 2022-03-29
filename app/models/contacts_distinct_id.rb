@@ -1,0 +1,2 @@
+class ContactsDistinctId < ApplicationRecord
+end
