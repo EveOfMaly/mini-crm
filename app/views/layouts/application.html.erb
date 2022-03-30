@@ -11,6 +11,11 @@
   </head>
 
   <body>
+
+    <%= link_to "Get Started", "/welcome-to-crm" %>
+    <%= link_to "Sign In", login_path %>
+    <%= button_to('Log Out', logout_path, method: :delete) %>
+    
     <%= yield %>
   </body>
 </html>

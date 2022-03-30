@@ -1,3 +1,48 @@
+User Story
+
+General Format
+- As a <type of user>
+- I want <some goal>
+- So that <some reason>
+
+Homepage of static#home
+- As a guest 
+- I want to get information on the app
+- So I can start to get information on my audience
+
+More Information -> welcome-to-crm
+- As a guest
+- I want to understand if this product is for me
+- So I can start to get information on my audience
+
+User Sign up  -> /signup
+- As a guest 
+- I want to signup witouth oauth or without oauth
+- So I can start to get information on my audience.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Objects
 
 Contacts_Visitors

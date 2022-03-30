@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   #track users across website
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
-  get '/logout', to: "sessions#destroy"
+  delete '/logout', to: "sessions#destroy"
 
   get "/apps/vspdssd/home", to: "application#home" #quick start guide
   get "/apps/vspdssd/crm", to: "contacts#index" #see all contacts
