@@ -1,13 +1,12 @@
-<%= button_to('Log in with Google', '/auth/google_oauth2', method: :post) %>
-
+Edit page
 
 <%= form_for @user do |f| %>
     <%= f.label :username %><br>
     <%= f.text_field :username %> <br>
     <%= f.label :email %><br>
     <%= f.text_field :email %> <br>
-    <%= f.label :password %><br>
-    <%= f.text_field :password %> <br> #change to password format later
     <%= f.submit  %>
 <% end %>
+
+<%= button_to('Delete User', '/users/:id', method: :post) %>
 

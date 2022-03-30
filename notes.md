@@ -33,8 +33,9 @@ sessions Controller - Know if the same user is coming in or not
 
 
 
-Validations to consider
-/users#new 
+Validations 
+
+
 
 
 

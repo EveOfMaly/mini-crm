@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :contacts_visitors
-  resources :users, only: [:index, :show, :create, :update, :destroy]
+  resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :visitors #known or unknown user visiting the site
   resources :contacts #see all contacts and CRUD contacts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
