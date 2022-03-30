@@ -16,7 +16,7 @@
     <%= link_to "Sign In", login_path %>
     
     <% if logged_in? == false %>
-     <%= button_to('TEST', logout_path, method: :delete) %>
+     <%= button_to('Do something', logout_path, method: :delete) %>
     <% else %>
       <%= button_to('Log Out', logout_path, method: :delete) %>
     <% end %>
