@@ -5,7 +5,7 @@ Intercom can make your customers happy and your team more efficient. (Yes. At th
 But first, we need your email.
 
 
-<%= form_for @user do |f| %>
+<%= form_for @user, :url => {:action => "welcome_create_lead"}  do |f| %>
     <%= f.label :email %><br>
     <%= f.text_field :email %> <br>
     <%= f.submit "Find out more" %>

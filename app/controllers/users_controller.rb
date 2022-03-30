@@ -8,12 +8,17 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+    def welcome_create_lead
+        @user = User.new(user_params)
+        render :new
+    end
+
     def new 
+        binding.pry
         @user = User.new
     end
 
     def create 
-        binding.pry
         @user = User.new(user_params)
 
         if @user.save 
@@ -33,7 +38,7 @@ class UsersController < ApplicationController
     end
 
     def user_params 
-        params.require(:user).permit(:name, :email, :password_digest)
+        params.require(:user).permit(:name, :email, :password)
     end
 
 
