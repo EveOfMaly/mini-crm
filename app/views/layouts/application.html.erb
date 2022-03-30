@@ -14,8 +14,12 @@
 
     <%= link_to "Get Started", "/welcome-to-crm" %>
     <%= link_to "Sign In", login_path %>
-    <%= button_to('Log Out', logout_path, method: :delete) %>
     
+    <% if logged_in? == false %>
+     <%= button_to('TEST', logout_path, method: :delete) %>
+    <% else %>
+      <%= button_to('Log Out', logout_path, method: :delete) %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
