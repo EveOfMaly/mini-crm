@@ -1,3 +1,79 @@
+Objects
+
+Contacts_Visitors
+- Belongs_to :contact
+- belongs_to :visitor 
+
+
+Contact  | Visitor 
+   Sally        12345
+
+
+Visitor - Person who visits the website
+- Visitor has_many contacts_visitors 
+- Visitor belongs to a Contact
+
+- Visitor belongs to a User
+
+Contacts - Person who gives email
+- Contact has_many contacts_visitors 
+- Contact has many visitors
+
+- Contact belongs to a user
+
+User - Person who owns the CRM
+- User has many visitors 
+- User has many contacts 
+
+
+Controller Jobs
+Contacts Controller - Job is to create when visitor gives email
+
+sessions Controller - Know if the same user is coming in or not 
+
+
+
+Validations to consider
+/users#new 
+
+
+
+
+
+General User Flow
+1. Anon Visits Site -> Connect Visitor to Session
+2. Random Visitor ID 12345 (Sally Susa)
+3. Connects all activity to Visitor ID
+4. Visitor signs up
+5. Call alias method
+6. User logs in with email 
+5. Identify called using contactname
+6. Contacts Connected to (visitir)
+7. Find all contacts with distinct ID connected 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 General User Flow

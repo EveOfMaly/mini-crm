@@ -1,0 +1,2 @@
+class ContactsVisitor < ApplicationRecord
+end
