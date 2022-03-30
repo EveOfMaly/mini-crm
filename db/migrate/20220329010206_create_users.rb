@@ -1,10 +1,10 @@
 class CreateUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
-      t.string :name
+      t.string :username
       t.text :password_digest
       t.text :email
-      t.integer :uid
+      t.string :uid, limit: 500 #google limit uid length is quite large have to change to BIGINT
       t.string :provider
       t.timestamps
     end
