@@ -5,20 +5,61 @@ General Format
 - I want <some goal>
 - So that <some reason>
 
-Homepage of static#home
+Homepage of static#home [X]
 - As a guest 
 - I want to get information on the app
 - So I can start to get information on my audience
 
-More Information -> welcome-to-crm
+More Information -> welcome-to-crm [X]
 - As a guest
 - I want to understand if this product is for me
 - So I can start to get information on my audience
 
-User Sign up  -> /signup
+User Sign up  -> /signup [X]
 - As a guest 
 - I want to signup witouth oauth or without oauth
 - So I can start to get information on my audience.
+
+
+Login User - > /login [X]
+- As a user 
+- I want to login to my account and see my data
+- So that I can continue my session.
+
+
+Log out User  -> /logout  [X]
+- As a user 
+- I want to lougout of my account
+- So that I end my session 
+
+Have instructions on how to use the tool   -> /user/app/home
+
+
+See a view of all the users contact    -> /user/app/crm
+- As a user 
+- I want to get a view of all the contacts  
+- So that I can have insight to take action.
+
+Create a new contact    -> /user/app/crm/new
+- As a user 
+- I want to get add a new contact 
+- So that I can manage my relationships
+
+Below actions require logged in 
+
+See a view of a website visitors that visit page -> user/visitors 
+- As a user 
+- I want to get a view of all the visitors of my site 
+- So that I can have insight to take action.
+
+
+
+
+
+
+#design ability to create a page <---track that page. User has many pages 
+Page belongs to a user
+
 
 
 

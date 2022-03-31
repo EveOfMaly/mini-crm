@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :contacts_visitors
-  resources :users, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :visitors #known or unknown user visiting the site
   resources :contacts #see all contacts and CRUD contacts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -9,6 +8,11 @@ Rails.application.routes.draw do
 
 
   #user
+
+  resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do 
+    resources :visitors, only: [:show, :index]
+    resources :contacts, only: [:show, :index]
+  end
   #possibly add verification if main elements are there.
 
   #welcome page 
@@ -23,11 +27,15 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
-  get "/apps/vspdssd/home", to: "application#home" #quick start guide
-  get "/apps/vspdssd/crm", to: "contacts#index" #see all contacts
-  get "/apps/vspdssd/crm", to: "contacts#new"  #create a new contact
-  post "/apps/vspdssd/crm", to: "contacts#new"  #create a new contact
-
-
+  #oauth
   get '/auth/:provider/callback', to: 'sessions#omniauth'
+
+
+  # get "/user/app/home", to: "application#home" #quick start guide
+  # get "/user/app/crm", to: "contacts#index" #see all contacts
+  # get "/user/app/crm/new", to: "contacts#new"  #create a new contact
+  # post "/user/app/crm", to: "contacts#new"  #create a new contact
+
+
+ 
 end
