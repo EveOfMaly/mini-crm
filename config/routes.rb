@@ -5,14 +5,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "static#home"
 
-
-
   #user
-
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do 
     resources :visitors, only: [:show, :index]
     resources :contacts, only: [:show, :index]
+    resources :pages
   end
+
   #possibly add verification if main elements are there.
 
   #welcome page 

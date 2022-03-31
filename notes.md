@@ -32,7 +32,11 @@ Log out User  -> /logout  [X]
 - I want to lougout of my account
 - So that I end my session 
 
+Below actions require logged in 
+
 Have instructions on how to use the tool   -> /user/app/home
+
+Create a page -> /users/page/new  [X]
 
 
 See a view of all the users contact    -> /user/app/crm
@@ -45,7 +49,7 @@ Create a new contact    -> /user/app/crm/new
 - I want to get add a new contact 
 - So that I can manage my relationships
 
-Below actions require logged in 
+
 
 See a view of a website visitors that visit page -> user/visitors 
 - As a user 
@@ -67,20 +71,8 @@ Page belongs to a user
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Contact  | Visitor 
+   Sally        12345
 
 
 
@@ -91,15 +83,11 @@ Contacts_Visitors
 - belongs_to :visitor 
 
 
-Contact  | Visitor 
-   Sally        12345
-
-
 Visitor - Person who visits the website
 - Visitor has_many contacts_visitors 
 - Visitor belongs to a Contact
 
-- Visitor belongs to a User
+
 
 Contacts - Person who gives email
 - Contact has_many contacts_visitors 
@@ -110,6 +98,10 @@ Contacts - Person who gives email
 User - Person who owns the CRM
 - User has many visitors 
 - User has many contacts 
+- User can have many pages 
+
+Page - Page created by a User
+- Page belongs to a User
 
 
 Controller Jobs

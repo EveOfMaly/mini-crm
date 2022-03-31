@@ -1,5 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :visitors
+    has_many :contacts
+    has_many :pages 
 
     def self.from_omniauth(response)
   
