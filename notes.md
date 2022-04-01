@@ -47,7 +47,7 @@ Button to fire traffic to a page
 
 Information on what the user does 
 
-See a view of all the users contact    -> /user/app/crm
+See a view of all the users contact    -> /app
 - As a user 
 - I want to get a view of all the contacts  
 - So that I can have insight to take action.
@@ -89,7 +89,6 @@ Objects
 App
 - An App has many Users
 
-
 Contacts_Visitors
 - Belongs_to :contact
 - belongs_to :visitor 
@@ -99,8 +98,6 @@ Visitor - Person who visits the website
 - Visitor has_many contacts_visitors 
 - Visitor belongs to a Contact
 
-
-
 Contacts - Person who gives email
 - Contact has_many contacts_visitors 
 - Contact has many visitors
@@ -108,10 +105,12 @@ Contacts - Person who gives email
 - Contact belongs to a user
 
 User - Person who owns the CRM
+- User belongs to an App
+
 - User has many visitors 
 - User has many contacts 
 - User can have many pages 
-- User belongs to an App
+
 
 Page - Page created by a User
 - Page belongs to a User
@@ -121,6 +120,8 @@ Controller Jobs
 Contacts Controller - Job is to create when visitor gives email
 
 sessions Controller - Know if the same user is coming in or not 
+
+
 
 
 
