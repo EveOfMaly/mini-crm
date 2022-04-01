@@ -86,6 +86,10 @@ Contact  | Visitor
 
 Objects
 
+App
+- An App has many Users
+
+
 Contacts_Visitors
 - Belongs_to :contact
 - belongs_to :visitor 
@@ -107,6 +111,7 @@ User - Person who owns the CRM
 - User has many visitors 
 - User has many contacts 
 - User can have many pages 
+- User belongs to an App
 
 Page - Page created by a User
 - Page belongs to a User

@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :visitors
     has_many :contacts
     has_many :pages 
+    belongs_to :app
 
     def self.from_omniauth(response)
   

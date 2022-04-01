@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :apps
   resources :contacts_visitors
   resources :visitors #known or unknown user visiting the site
   resources :contacts #see all contacts and CRUD contacts

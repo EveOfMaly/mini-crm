@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
         if @user.valid?
             session[:user_id] = @user.id
+            @app = App.create(user: @user)
             redirect_to user_path(@user)
         else 
             redirect_to "/"
@@ -16,6 +17,7 @@ class SessionsController < ApplicationController
     def new 
     end
 
+    #login
     def create 
         @user = User.find_by(username: params[:username])
 
