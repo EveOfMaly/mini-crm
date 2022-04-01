@@ -1,5 +1,7 @@
 Edit page
 
+Change layout
+
 <%= form_for @user do |f| %>
     <%= f.label :username %><br>
     <%= f.text_field :username %> <br>
@@ -7,6 +9,4 @@ Edit page
     <%= f.text_field :email %> <br>
     <%= f.submit  %>
 <% end %>
-
-<%= button_to('Delete User', '/users/:id', method: :post) %>
 

@@ -5,10 +5,9 @@ class SessionsController < ApplicationController
         @user = User.from_omniauth(request.env['omniauth.auth'])
        
         if @user.valid?
-            
             session[:user_id] = @user.id
-            session[:app_id] = @app.id
-            redirect_to user_path(@user)
+            session[:app_id] = @user.app.id
+            redirect_to controller: "application", action: "home"
         else 
             redirect_to "/"
         end
@@ -24,7 +23,7 @@ class SessionsController < ApplicationController
 
         if @user.try(:authenticate, params[:password])
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to controller: "application", action: "home"
         else 
             render :new
         end

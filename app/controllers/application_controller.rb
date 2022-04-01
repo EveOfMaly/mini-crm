@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     include SessionsHelper
 
     def home  
+        
     end
 
     def require_login 
@@ -19,8 +20,5 @@ class ApplicationController < ActionController::Base
     end
 
  
-
-
-
 
 end

@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
-  resources :apps
-  resources :contacts_visitors
-  resources :visitors #known or unknown user visiting the site
-  resources :contacts #see all contacts and CRUD contacts
+ 
+  get "/apps/:id/home", to: "apps#home", as: "home" #quick start guide
+  resources :users #set some of routes only for admin
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "static#home"
-
   #user
-  resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do 
-    resources :visitors, only: [:show, :index]
-    resources :contacts, only: [:show, :index]
+  resources :apps, only: [:show, :create, :edit, :update, :destroy] do 
+    resources :users, only: [:index, :new, :show, :create, :edit, :update, :destroy] 
+    resources :visitors, only: [:index, :new,  :show, :create, :edit, :update, :destroy] 
+    resources :contacts, only: [:index, :new, :show, :create, :edit, :update, :destroy] 
     resources :pages
   end
 
@@ -30,11 +29,6 @@ Rails.application.routes.draw do
   #oauth
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-
-  # get "/user/app/home", to: "application#home" #quick start guide
-  # get "/user/app/crm", to: "contacts#index" #see all contacts
-  # get "/user/app/crm/new", to: "contacts#new"  #create a new contact
-  # post "/user/app/crm", to: "contacts#new"  #create a new contact
 
 
  

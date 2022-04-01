@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :require_login, only: [:show, :edit]
-
+ 
     def index 
         @users = User.all
     end
@@ -12,6 +11,7 @@ class UsersController < ApplicationController
     end
 
     def welcome_create_lead
+
         @user = User.new(user_params)
         render layout: false
     end
@@ -31,8 +31,8 @@ class UsersController < ApplicationController
 
         if @user.save 
             session[:user_id] = @user.id
-
-            redirect_to user_path(@user)
+            session[:app_id] = @user.app.id
+            redirect_to home_path(@user.app)
         else 
             render :new
         end
