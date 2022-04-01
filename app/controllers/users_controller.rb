@@ -13,8 +13,9 @@ class UsersController < ApplicationController
 
     def welcome_create_lead
         @user = User.new(user_params)
-        render :new
+        render layout: false
     end
+
 
     def show 
         @users = User.all
@@ -30,6 +31,7 @@ class UsersController < ApplicationController
 
         if @user.save 
             session[:user_id] = @user.id
+
             redirect_to user_path(@user)
         else 
             render :new

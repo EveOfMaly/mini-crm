@@ -41,6 +41,11 @@ Create a page -> /users/page/new  [X]
 - I want to create a new page
 - So that I can get tracking on that page
 
+Button to fire traffic to a page
+
+
+
+Information on what the user does 
 
 See a view of all the users contact    -> /user/app/crm
 - As a user 

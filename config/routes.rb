@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   #welcome page 
   get "/welcome-to-crm", to: "users#welcome"
-  post "/welcome-to-crm", to: "users#welcome_create_lead"
+    post "/welcome-to-crm", to: "users#welcome_create_lead"
    
   #sign-up with google or signup via crm
   get "/signup", to: "users#new"
