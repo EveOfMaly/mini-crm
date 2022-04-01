@@ -1,18 +1,24 @@
 class UsersController < ApplicationController
 
-    before_action :require_login, only: [:show]
-    
+    before_action :require_login, only: [:show, :edit]
+
     def index 
         @users = User.all
     end
 
     def welcome 
         @user = User.new
+        render layout: 'welcome'
     end
 
     def welcome_create_lead
         @user = User.new(user_params)
         render :new
+    end
+
+    def show 
+        @users = User.all
+        @user = User.find_by(id: params[:id])
     end
 
     def new 
@@ -24,7 +30,6 @@ class UsersController < ApplicationController
 
         if @user.save 
             session[:user_id] = @user.id
-            binding.pry
             redirect_to user_path(@user)
         else 
             render :new

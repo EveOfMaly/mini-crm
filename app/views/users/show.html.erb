@@ -1,5 +1,33 @@
 User Show Page
 
-<%= button_to('Delete User', user_path, method: :delete) %>
+<hr>
+    <div class="row">
+        <div class="column" >
+            <h4>Name</h4>
+        </div>
+        <div class="column">
+            <h4>Tickets</h4>
+        </div>
+        <div class="column">
+            <h4>Details</h4>
+        </div>
+    </div>
+<% @users.each do |user| %>
+    <div class="row">
+        <div class="column" >
+            <p><%= user.username %></p>
+        </div>
+        <div class="column">
+            <p><%= user.username %></p>
+        </div>
+        <div class="column">
+            <p><%= user.username %></p>
+        </div>
+    </div>
+<% end %>
 
+<%= button_to('Delete User', user_path, method: :delete) %> <br>
+<% if logged_in? == true %>
+<%= link_to "Create a page",  new_user_page_path(@user)  %>
+<% end %>
 

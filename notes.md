@@ -37,6 +37,9 @@ Below actions require logged in
 Have instructions on how to use the tool   -> /user/app/home
 
 Create a page -> /users/page/new  [X]
+- As a user 
+- I want to create a new page
+- So that I can get tracking on that page
 
 
 See a view of all the users contact    -> /user/app/crm

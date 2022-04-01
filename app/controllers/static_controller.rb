@@ -1,5 +1,5 @@
 class StaticController < ActionController::Base
-    layout 'application'
+    layout 'LOH'
     def home  
     end
 
