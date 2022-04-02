@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
 
     #form signup paths
     def new 
+        render layout: false
     end
 
     #login

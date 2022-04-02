@@ -36,7 +36,19 @@ Below actions require logged in
 
 Have instructions on how to use the tool   -> /user/app/home
 
-Create a page -> /users/page/new  [X]
+See a list of all my contacts -> /app/XXX/contacts  -> contacts#index
+- As a user 
+- I want to create a new contact
+- So tha
+
+Manually Add a contact -> /app/XXX/contacts/new  -> contacts#new
+- As a user 
+- I want to create a new contact
+- So tha
+
+
+
+Create a page -> /users/page/new  
 - As a user 
 - I want to create a new page
 - So that I can get tracking on that page
