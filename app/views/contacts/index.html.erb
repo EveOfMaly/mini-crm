@@ -1,35 +1,38 @@
-Listing attraction
-<hr>
-    <div class="row">
-        <div class="column" >
-            <h4>Name</h4>
-        </div>
-        <div class="column">
-            <h4>Tickets</h4>
-        </div>
-        <div class="column">
-            <h4>Details</h4>
-        </div>
-        <div class="column" >
-            <h4>Name</h4>
-        </div>
-        <div class="column">
-            <h4>Tickets</h4>
-        </div>
-        <div class="column">
-            <h4>Details</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="column" >
-         <p>Test</p>
-        </div>
-        <div class="column">
-        <p>Test</p>
-        </div>
-        <div class="column">
-        <p>Test</p>
-        </div>
-    </div>
+
+<div class="table">
+<div class="table-wrapper">
+<table>
+<thead>
+    <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Last Visit</th>
+    <th>Region</th>
+    <th>City</th>
+    <th>Country Code</th>
+    </tr>
+</thead>
+<tbody>
+    <% @contacts.each do |contact|  %>
+    <tr>
+        <td><%=  contact.name %></td>
+        <td><%   contact.name %></td>
+        <td><%   contact.name %></td>
+        <td><%   contact.name %></td>
+        <td><%   contact.name %></td>
+        <td><%   contact.name %></td>
+        <td><%   contact.name %></td>
+        <td><%   contact.name %></td>
+        <td><%   contact.name %></td>
+    </tr>
+    <% end %>
+</tbody>
+</table>
+</div>
+</div>
+
 
 

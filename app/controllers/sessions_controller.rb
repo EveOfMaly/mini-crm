@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         if @user.valid?
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
-            redirect_to controller: "application", action: "home"
+            redirect_to app_contacts_path(@user.app)
         else 
             redirect_to "/"
         end
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
         if @user.try(:authenticate, params[:password])
             session[:user_id] = @user.id
-            redirect_to controller: "application", action: "home"
+            redirect_to app_contacts_path(@user.app)
         else 
             render :new
         end

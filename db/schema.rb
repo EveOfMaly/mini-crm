@@ -13,6 +13,10 @@
 ActiveRecord::Schema.define(version: 2022_04_01_172232) do
 
   create_table "apps", force: :cascade do |t|
+    t.integer "user_ids"
+    t.integer "contacts_ids"
+    t.integer "visitors_ids"
+    t.integer "pages_ids"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,6 +31,7 @@ ActiveRecord::Schema.define(version: 2022_04_01_172232) do
     t.string "city"
     t.string "referring_domain"
     t.string "country_code"
+    t.integer "app_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,6 +48,7 @@ ActiveRecord::Schema.define(version: 2022_04_01_172232) do
     t.string "url"
     t.integer "user_id"
     t.string "owner"
+    t.integer "app_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -65,6 +71,7 @@ ActiveRecord::Schema.define(version: 2022_04_01_172232) do
     t.string "city"
     t.string "referring_domain"
     t.string "country_code"
+    t.integer "app_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

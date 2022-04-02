@@ -18,13 +18,13 @@ user2 = User.create(username: Faker::Name.name, email: Faker::Internet.email, pa
 end
 
 2.times do 
-    Page.create(title: Faker::Commerce.product_name, user: user2, owner: user1.username)  
+    Page.create(title: Faker::Commerce.product_name, user: user2, owner: user2.username)  
 end
 
 
 #visitors visit the page 
 10.times do 
-    Visitor.create(name: Faker::FunnyName.name, last_visit: 
+    Visitor.create(name: Faker::FunnyName.name, last_visit: , 
 end
 
 

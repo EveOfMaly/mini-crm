@@ -1,8 +1,9 @@
 class AppsController < ApplicationController
    
     def home 
-        render layout: false
+
     end
+    
     def index
         @apps = App.all 
     end

@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         if @user.save 
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
-            redirect_to home_path(@user.app)
+            redirect_to app_contacts_path(@user.app)
         else 
             render :new
         end
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     def update 
         @user = User.find_by(id: params[:id])
         @user.update(user_params)
-        redirect_to user_path(@user)
+        redirect_to app_contacts_path(@user.app)
     end
 
 

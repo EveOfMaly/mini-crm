@@ -7,6 +7,7 @@ class CreateVisitors < ActiveRecord::Migration[6.1]
       t.string :city
       t.string :referring_domain
       t.string :country_code
+      t.integer :app_id
       
       t.timestamps
     
