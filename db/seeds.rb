@@ -30,14 +30,14 @@ end
 
 
 
-# Create three pages for user 1 and 2 pages for User two
-3.times do 
-    Page.create(title: Faker::Commerce.product_name, user: user1, owner: user1.username)  
-end
+# # Create three pages for user 1 and 2 pages for User two
+# 3.times do 
+#     Page.create(title: Faker::Commerce.product_name, user: user1, owner: user1.username)  
+# end
 
-2.times do 
-    Page.create(title: Faker::Commerce.product_name, user: user2, owner: user2.username)  
-end
+# 2.times do 
+#     Page.create(title: Faker::Commerce.product_name, user: user2, owner: user2.username)  
+# end
 
 
 

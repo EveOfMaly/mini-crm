@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_03_161400) do
+ActiveRecord::Schema.define(version: 2022_04_03_180812) do
 
   create_table "app_users", force: :cascade do |t|
     t.integer "app_id"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2022_04_03_161400) do
   end
 
   create_table "apps", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contact_visitor_joins", force: :cascade do |t|
+    t.integer "contact_id"
+    t.integer "visitor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,11 +49,13 @@ ActiveRecord::Schema.define(version: 2022_04_03_161400) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contacts_visitors", force: :cascade do |t|
+  create_table "identities", force: :cascade do |t|
+    t.integer "visitor_id"
     t.integer "contact_id"
-    t.integer "visitors_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_id"], name: "index_identities_on_contact_id"
+    t.index ["visitor_id"], name: "index_identities_on_visitor_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -78,7 +87,6 @@ ActiveRecord::Schema.define(version: 2022_04_03_161400) do
     t.string "referring_domain"
     t.string "country_code"
     t.integer "app_id"
-    t.integer "contact_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

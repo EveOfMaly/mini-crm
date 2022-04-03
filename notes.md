@@ -93,29 +93,24 @@ Contact  | Visitor
 
 User - Person who owns the CRM
 - User has many Apps [X]
+- User has many contacts  [X]
 
-
-- User has many contacts  []
 - User has many visitors  []
 - User can have many pages  []
 
 App
-- An App has many Users []
+- An App has many Users [X]
 - An App has many Contacts  []
 
 - An App has many Visitors []
 - An App has many Pages  []
 
-
-
-
-
-
-
-
 Contacts - Person who gives email
-- Contact Belongs to an App  []
-- Contact belongs to a user []
+- Contact Belongs to an App  [X]
+- Contact belongs to a user [X]
+
+
+
 - Contact has_many contacts_visitors []
 - Contact has many visitors []
 
