@@ -4,7 +4,6 @@ class ContactsController < ApplicationController
         if params[:app_id]
             @app = App.find(params[:app_id])
             @contacts = @app.contacts
-            
         else 
             @contacts = Contact.all 
         end
@@ -12,14 +11,13 @@ class ContactsController < ApplicationController
 
     def new 
         @app = App.find(params[:app_id])
-        @contacts = Contact.new
+        @contact = Contact.new
     end
 
     def create 
-        @app = App.find(params[:app_id])
-        
-        contact = Contact.find(params[:id])
-        
+        binding.pry
+        @app = App.find(params[:contact][:app_id])
+
         @contact = Contact.new(contact_params)
 
         if @contact.save 
@@ -57,7 +55,7 @@ class ContactsController < ApplicationController
 
    
     def contact_params 
-        params.require(:contact).permit(:name, :age, :email, :gender, :last_visit, :region, :city, :country_code)
+        params.require(:contact).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :user_id)
     end
 
 end

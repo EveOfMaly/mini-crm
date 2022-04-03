@@ -1,1 +1,29 @@
-New Contact
+
+<%= form_for @contact do |f| %>
+    <h2>Create a new contact </h2><br> <br> 
+
+    <%= f.hidden_field :app_id, value: params[:app_id] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <br>
+
+
+     <%= f.label :name %><br> 
+     <%=f.text_field :name %><br>
+
+     <%= f.label :spent %><br> 
+     <%=f.text_field :spent %><br>
+
+     <%= f.label :email %><br> 
+     <%=f.text_field :email %><br>
+
+     <%=f.label :first_seen %><br>
+     <%=f.text_field :first_seen %><br>
+
+     <%=f.label :last_visit %><br>
+     <%=f.text_field :last_visit %><br>
+      
+     <%=f.label :city %><br>
+     <%=f.text_field :city %><br>
+
+    <%= f.submit  %>
+<% end %>

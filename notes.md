@@ -41,7 +41,7 @@ See a list of all my contacts -> /app/XXX/contacts  -> contacts#index
 - I want to create a new contact
 - So tha
 
-Manually Add a contact -> /app/XXX/contacts/new  -> contacts#new
+Manually Add a contact -> /app/XXX/contacts/new  -> contacts#new 
 - As a user 
 - I want to create a new contact
 - So tha
@@ -98,34 +98,50 @@ Contact  | Visitor
 
 Objects
 
-App
-- An App has many Users
-
-Contacts_Visitors
+(Join Table) Contacts_Visitors
 - Belongs_to :contact
 - belongs_to :visitor 
 
 
-Visitor - Person who visits the website
-- Visitor has_many contacts_visitors 
-- Visitor belongs to a Contact
+App
+- An App has many Contacts  [X]
+- An App has many Users [X]
+- An App has many Visitors [X]
+- An App has many Pages  [X]
 
 Contacts - Person who gives email
-- Contact has_many contacts_visitors 
-- Contact has many visitors
+- Contact Belongs to an App  [X]
+- Contact belongs to a user [X]
+- Contact has_many contacts_visitors [X]
+- Contact has many visitors [X]
 
-- Contact belongs to a user
+
 
 User - Person who owns the CRM
-- User belongs to an App
+- User belongs to an App [X]
+- User has many contacts  [X]
 
-- User has many visitors 
-- User has many contacts 
-- User can have many pages 
+- User has many visitors  [X]
+
+- User can have many pages  [X]
+
+
+
+Visitor - Person who visits the website
+- Contact Belongs to an App  [X]
+- Visitor has_many contacts_visitors  [X]
+- Visitor belongs to a Contact [X]
+- Visitor has many Pages [X]
+
+
+
+
 
 
 Page - Page created by a User
 - Page belongs to a User
+- Page belongs to a App
+- Page has many visitors
 
 
 Controller Jobs

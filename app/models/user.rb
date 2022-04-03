@@ -1,9 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
     before_validation :create_app 
+    has_many :contacts
     
     has_many :visitors
-    has_many :contacts
+    
     has_many :pages 
     belongs_to :app
 
