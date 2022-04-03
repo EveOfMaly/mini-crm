@@ -10,6 +10,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_04_03_161400) do
+
+  create_table "app_users", force: :cascade do |t|
+    t.integer "app_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "apps", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.integer "spent"
+    t.integer "age"
+    t.string "email"
+    t.string "gender"
+    t.text "first_seen"
+    t.text "last_visit"
+    t.string "region"
+    t.string "city"
+    t.string "referring_domain"
+    t.string "country_code"
+    t.integer "app_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contacts_visitors", force: :cascade do |t|
+    t.integer "contact_id"
+    t.integer "visitors_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.integer "user_id"
+    t.string "owner"
+    t.integer "app_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.text "password_digest"
+    t.text "email"
+    t.string "uid", limit: 500
+    t.string "provider"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "visitors", force: :cascade do |t|
+    t.string "name"
+    t.text "first_seen"
+    t.text "last_visit"
+    t.string "region"
+    t.string "city"
+    t.string "referring_domain"
+    t.string "country_code"
+    t.integer "app_id"
+    t.integer "contact_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

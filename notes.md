@@ -5,29 +5,29 @@ General Format
 - I want <some goal>
 - So that <some reason>
 
-Homepage of static#home [X]
+Homepage of static#home []
 - As a guest 
 - I want to get information on the app
 - So I can start to get information on my audience
 
-More Information -> welcome-to-crm [X]
+More Information -> welcome-to-crm []
 - As a guest
 - I want to understand if this product is for me
 - So I can start to get information on my audience
 
-User Sign up  -> /signup [X]
+User Sign up  -> /signup []
 - As a guest 
 - I want to signup witouth oauth or without oauth
 - So I can start to get information on my audience.
 
 
-Login User - > /login [X]
+Login User - > /login []
 - As a user 
 - I want to login to my account and see my data
 - So that I can continue my session.
 
 
-Log out User  -> /logout  [X]
+Log out User  -> /logout  []
 - As a user 
 - I want to lougout of my account
 - So that I end my session 
@@ -82,11 +82,6 @@ See a view of a website visitors that visit page -> user/visitors
 
 
 #design ability to create a page <---track that page. User has many pages 
-Page belongs to a user
-
-
-
-
 
 
 
@@ -96,6 +91,35 @@ Contact  | Visitor
 
 
 
+User - Person who owns the CRM
+- User has many Apps [X]
+
+
+- User has many contacts  []
+- User has many visitors  []
+- User can have many pages  []
+
+App
+- An App has many Users []
+- An App has many Contacts  []
+
+- An App has many Visitors []
+- An App has many Pages  []
+
+
+
+
+
+
+
+
+Contacts - Person who gives email
+- Contact Belongs to an App  []
+- Contact belongs to a user []
+- Contact has_many contacts_visitors []
+- Contact has many visitors []
+
+
 Objects
 
 (Join Table) Contacts_Visitors
@@ -103,35 +127,13 @@ Objects
 - belongs_to :visitor 
 
 
-App
-- An App has many Contacts  [X]
-- An App has many Users [X]
-- An App has many Visitors [X]
-- An App has many Pages  [X]
-
-Contacts - Person who gives email
-- Contact Belongs to an App  [X]
-- Contact belongs to a user [X]
-- Contact has_many contacts_visitors [X]
-- Contact has many visitors [X]
-
-
-
-User - Person who owns the CRM
-- User belongs to an App [X]
-- User has many contacts  [X]
-
-- User has many visitors  [X]
-
-- User can have many pages  [X]
-
 
 
 Visitor - Person who visits the website
-- Contact Belongs to an App  [X]
-- Visitor has_many contacts_visitors  [X]
-- Visitor belongs to a Contact [X]
-- Visitor has many Pages [X]
+- Contact Belongs to an App  []
+- Visitor has_many contacts_visitors  []
+- Visitor belongs to a Contact []
+- Visitor has many Pages []
 
 
 
