@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
         @user = User.from_omniauth(request.env['omniauth.auth'])
        
         if @user.valid?
+            @user.save
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
             redirect_to app_contacts_path(@user.app)

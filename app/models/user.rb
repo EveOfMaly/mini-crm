@@ -1,8 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     after_validation :set_create_app 
-    has_many :app_users
-    has_many :apps, through: :app_users
+    belongs_to :app
     
     has_many :contacts
     
@@ -23,7 +22,7 @@ class User < ApplicationRecord
 
     #create an instance of an app and associate with the user
     def set_create_app
-        self.apps.build  
+        self.create_app
     end
 
     def user_params

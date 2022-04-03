@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2022_04_03_180812) do
     t.text "email"
     t.string "uid", limit: 500
     t.string "provider"
+    t.integer "app_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
