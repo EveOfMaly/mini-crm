@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
     #google oauth method 
     def omniauth 
         @user = User.from_omniauth(request.env['omniauth.auth'])
-        @app = @user.build_app 
 
         if @user.valid?
             session[:user_id] = @user.id
