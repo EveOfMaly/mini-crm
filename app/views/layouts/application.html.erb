@@ -40,7 +40,8 @@
         </button>
         <div class="collapse show" id="account-collapse" style="">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            
+            <li><%= link_to "New Contact", new_app_contact_path(@app) %></li>
+            <li><%= link_to "Profile ", app_user_path(current_user, @app) %></li>
             <% if logged_in? == false %>
             <li class="nav-item"><a href="/login" class="nav-link">Sign In</a></li>
             <% else %>

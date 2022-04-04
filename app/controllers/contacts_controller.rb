@@ -11,13 +11,10 @@ class ContactsController < ApplicationController
     end
 
     def new 
-        @app = App.find(params[:app_id])
         @contact = Contact.new
     end
 
     def create 
-
-        @app = App.find(params[:contact][:app_id])
 
         @contact = Contact.new(contact_params)
 

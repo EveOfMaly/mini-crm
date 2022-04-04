@@ -20,7 +20,7 @@
 <tbody>
     <% @contacts.each do |contact|  %>
     <tr>
-        <td><%=  contact.name %></td>
+        <td><%= link_to contact.name, app_contact_path(@app, contact.id) %></td>
         <td><%   contact.name %></td>
         <td><%   contact.name %></td>
         <td><%   contact.name %></td>
