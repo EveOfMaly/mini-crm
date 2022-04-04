@@ -1,6 +1,5 @@
 class User < ApplicationRecord
     has_secure_password
-    before_validation :set_create_app 
     belongs_to :app
     
     has_many :contacts
@@ -21,10 +20,10 @@ class User < ApplicationRecord
     private
 
     #create an instance of an app and associate with the user
-    def set_create_app
-        @app = App.new
-        self.app = @app 
-    end
+    # def set_create_app
+    #     @app = App.create
+    #     self.app = @app 
+    # end
 
     def user_params
         params.require(:user).permit(:username, :password, :email, :uid, :provider)

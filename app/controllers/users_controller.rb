@@ -2,7 +2,8 @@ class UsersController < ApplicationController
     before_action :get_app, only: [:index, :show, :edit, :update, :destroy]
     skip_before_action :get_app, only: [:welcome, :welcome_create_lead]
     before_action :set_user, only:[:show, :edit, :update, :destroy]
- 
+
+
     def index 
         @users = @app.users
     end
@@ -28,11 +29,11 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.new(user_params)
-
+        @app = @user.build_app 
         if @user.save 
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
-            redirect_to app_contacts_path(@user.app)
+            redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
         else 
             render :new
         end
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
     def update 
         @user = User.find_by(id: params[:id])
         @user.update(user_params)
-        redirect_to app_contacts_path(@user.app)
+        redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
     end
 
 
@@ -69,5 +70,6 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :email, :password, :app_id)
     end
 
+  
 
 end

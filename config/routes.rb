@@ -15,10 +15,9 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
    
     
-  get "/apps/:id/home", to: "apps#home", as: "home" #quick start guide
   resources :users, only: [:index, :new, :create] #set some of routes only for admin
   resources :visitors, only: [:index, :new, :create]
-  resources :contacts, only: [:index, :new, :create]
+ 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   

@@ -1,9 +1,13 @@
 class ContactsController < ApplicationController
-    before_action :get_app, only: [:index, :show, :edit, :update, :destroy]
+    before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy]
     before_action :set_contacts, only:[:show, :edit, :update, :destroy]
 
-    def index 
-        @contacts = @app.contacts
+    def index
+        if params[:app_id]
+            @contacts = @app.contacts
+        else 
+            @contacts = Contact.all 
+        end
     end
 
     def new 
@@ -12,6 +16,7 @@ class ContactsController < ApplicationController
     end
 
     def create 
+
         @app = App.find(params[:contact][:app_id])
 
         @contact = Contact.new(contact_params)
@@ -19,7 +24,7 @@ class ContactsController < ApplicationController
         if @contact.save 
             # session[:contact_id] = @contact.id
             # session[:app_id] = @contact.app.id
-            redirect_to app_contacts_path(@contact.app)
+            redirect_to controller: "contacts", action: 'index'
         else 
             render :new
         end

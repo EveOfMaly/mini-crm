@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
     #google oauth method 
     def omniauth 
         @user = User.from_omniauth(request.env['omniauth.auth'])
-       
+        @app = @user.build_app 
+
         if @user.valid?
-            @user.create_app
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
-            redirect_to app_contacts_path(@user.app)
+            redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
         else 
             redirect_to "/"
         end
@@ -21,12 +21,11 @@ class SessionsController < ApplicationController
 
     #login
     def create 
-
         @user = User.find_by(username: params[:username])
         
         if @user.try(:authenticate, params[:password])
             session[:user_id] = @user.id
-            redirect_to app_contacts_path(@user.app)
+            redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
         else 
             redirect_to "/login"
         end
