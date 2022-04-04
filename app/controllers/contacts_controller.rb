@@ -1,12 +1,9 @@
 class ContactsController < ApplicationController
+    before_action :get_app, only: [:index, :show, :edit, :update, :destroy]
+    before_action :set_contacts, only:[:show, :edit, :update, :destroy]
 
     def index 
-        if params[:app_id]
-            @app = App.find(params[:app_id])
-            @contacts = @app.contacts
-        else 
-            @contacts = Contact.all 
-        end
+        @contacts = @app.contacts
     end
 
     def new 
@@ -15,7 +12,6 @@ class ContactsController < ApplicationController
     end
 
     def create 
-        binding.pry
         @app = App.find(params[:contact][:app_id])
 
         @contact = Contact.new(contact_params)
@@ -53,9 +49,23 @@ class ContactsController < ApplicationController
         redirect_to "/"
     end
 
+
+    private
+
+    def get_app
+        @app =  App.find(params[:app_id])
+    end
+
+    def set_contacts 
+        @contact = @app.contacts.find(params[:id])
+    end
+    
+
    
     def contact_params 
         params.require(:contact).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :user_id)
     end
+
+
 
 end

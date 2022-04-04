@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         @user = User.from_omniauth(request.env['omniauth.auth'])
        
         if @user.valid?
-            @user.save
+            @user.create_app
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
             redirect_to app_contacts_path(@user.app)
@@ -21,13 +21,14 @@ class SessionsController < ApplicationController
 
     #login
     def create 
-        @user = User.find_by(username: params[:username])
 
+        @user = User.find_by(username: params[:username])
+        
         if @user.try(:authenticate, params[:password])
             session[:user_id] = @user.id
             redirect_to app_contacts_path(@user.app)
         else 
-            render :new
+            redirect_to "/login"
         end
     end
 
@@ -41,7 +42,5 @@ class SessionsController < ApplicationController
     def auth 
         request.env['omniauth.auth']
     end
-
-    
 
 end

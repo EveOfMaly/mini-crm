@@ -5,23 +5,23 @@ General Format
 - I want <some goal>
 - So that <some reason>
 
-Homepage of static#home []
+Homepage of static#home [X]
 - As a guest 
 - I want to get information on the app
 - So I can start to get information on my audience
 
-More Information -> welcome-to-crm []
+More Information -> welcome-to-crm [[X]]
 - As a guest
 - I want to understand if this product is for me
 - So I can start to get information on my audience
 
-User Sign up  -> /signup []
+User Sign up  -> /signup [X]]
 - As a guest 
 - I want to signup witouth oauth or without oauth
 - So I can start to get information on my audience.
 
 
-Login User - > /login []
+Login User - > /login [[X]]
 - As a user 
 - I want to login to my account and see my data
 - So that I can continue my session.
@@ -108,7 +108,6 @@ App
 Contacts - Person who gives email
 - Contact Belongs to an App  [X]
 - Contact belongs to a user [X]
-
 
 
 - Contact has_many contacts_visitors []

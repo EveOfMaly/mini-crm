@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
  
-
-  resources :app_users
   resources :contacts, only: [:index, :new, :show, :create, :edit, :update, :destroy]  #set to admin only
   #welcome page 
   root "static#home"
@@ -18,14 +16,17 @@ Rails.application.routes.draw do
    
     
   get "/apps/:id/home", to: "apps#home", as: "home" #quick start guide
-  resources :users #set some of routes only for admin
+  resources :users, only: [:index, :new, :create] #set some of routes only for admin
+  resources :visitors, only: [:index, :new, :create]
+  resources :contacts, only: [:index, :new, :create]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   #user
   resources :apps, only: [:show, :create, :edit, :update, :destroy] do 
-    resources :users, only: [:index, :new, :show, :create, :edit, :update, :destroy] 
-    resources :visitors, only: [:index, :new,  :show, :create, :edit, :update, :destroy] 
-    resources :contacts, only: [:index, :new, :show, :create, :edit, :update, :destroy] 
+    resources :users, only: [:index, :new, :show, :create, :edit, :update, :destroy]
+    resources :visitors, only: [:index, :new,  :show, :create, :edit, :update, :destroy]
+    resources :contacts, only: [:index, :new, :show, :create, :edit, :update, :destroy]
     resources :pages
   end
 

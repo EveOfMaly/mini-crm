@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-
+    before_action :get_app, only: [:index, :show, :edit, :update, :destroy]
+    skip_before_action :get_app, only: [:welcome, :welcome_create_lead]
+    before_action :set_user, only:[:show, :edit, :update, :destroy]
  
     def index 
-        @users = User.all
+        @users = @app.users
     end
 
     def welcome 
@@ -11,16 +13,14 @@ class UsersController < ApplicationController
     end
 
     def welcome_create_lead
-
         @user = User.new(user_params)
         render layout: false
     end
 
-
     def show 
-        @users = User.all
         @user = User.find_by(id: params[:id])
     end
+        
 
     def new 
         @user = User.new
@@ -55,6 +55,16 @@ class UsersController < ApplicationController
         redirect_to "/"
     end
 
+    private 
+
+    def get_app
+        @app =  App.find(params[:app_id])
+    end
+
+    def set_user 
+        @user = @app.users.find(params[:id])
+    end
+    
     def user_params 
         params.require(:user).permit(:username, :email, :password, :app_id)
     end
