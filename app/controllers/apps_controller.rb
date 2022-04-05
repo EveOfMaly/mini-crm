@@ -1,4 +1,5 @@
 class AppsController < ApplicationController
+    before_action :get_app
     # skip_before_action :track_ahoy_visit, only: [:home, :index, :show, :new, :create, :destroy]
     def home 
 
@@ -9,19 +10,16 @@ class AppsController < ApplicationController
     end
 
     def show 
-        @app = App.new
+    
     end
 
     def new 
-        @app = App.new
     end
 
     def create 
-        @app = App.new
     end
 
     def destroy 
-        @app = App.new
     end
 
 

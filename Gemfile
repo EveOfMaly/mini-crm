@@ -41,7 +41,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'table_print'
   gem 'faker'
-  gem 'ahoy_matey'
+  gem "ahoy_matey"
 end
 
 group :development do

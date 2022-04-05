@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
         if @user.valid?
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
+            ahoy.authenticate(@user)
             redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
         else 
             redirect_to "/"
@@ -26,6 +27,7 @@ class SessionsController < ApplicationController
         
         if @user.try(:authenticate, params[:password])
             session[:user_id] = @user.id
+            ahoy.authenticate(@user)
             redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
         else 
             redirect_to "/login"

@@ -10,6 +10,8 @@ class CreateAhoyVisitsAndEvents < ActiveRecord::Migration[6.1]
       # user
       t.references :user
 
+      t.references :app #added in 
+
       # standard
       t.string :ip
       t.text :user_agent
@@ -49,6 +51,7 @@ class CreateAhoyVisitsAndEvents < ActiveRecord::Migration[6.1]
     create_table :ahoy_events do |t|
       t.references :visit
       t.references :user
+      t.references :app 
 
       t.string :name
       t.text :properties
