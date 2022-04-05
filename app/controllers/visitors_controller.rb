@@ -69,7 +69,7 @@ class VisitorsController < ApplicationController
     
 
     def visitor_params 
-        params.require(:visitor).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :user_id, :visitor_id)
+        params.require(:visitor).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :user_id)
     end
 
 

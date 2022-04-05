@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :contacts
     
     has_many :visitors
-    
+   
     has_many :pages 
 
     def self.from_omniauth(response)
@@ -14,8 +14,8 @@ class User < ApplicationRecord
             u.email = response[:info][:email]
             u.password = SecureRandom.hex(15)
             u.app = u.build_app
-
         end
+        ahoy.authenticate(@user)
     end
 
 

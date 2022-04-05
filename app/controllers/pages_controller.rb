@@ -30,6 +30,7 @@ class PagesController < ActionController::Base
     end
 
     def show 
+        ahoy.track "My first event", language: "Ruby"
         @contact = Contact.new
         render layout: '_bio_link'
         # render plain: "You IP address is #{client_ip}"

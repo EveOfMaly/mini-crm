@@ -34,8 +34,6 @@ gem 'bcrypt'
 #Use IP address to get local information
 gem 'geocoder'
 
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -43,6 +41,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'table_print'
   gem 'faker'
+  gem 'ahoy_matey'
 end
 
 group :development do

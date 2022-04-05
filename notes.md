@@ -1,3 +1,63 @@
+
+
+Contact  | Visitor 
+   Sally        12345
+
+
+User - Person who owns the CRM
+- User belongs to Apps    [X]
+- User has many contacts   [X]
+- User has many Visits 
+- User can have many pages  
+
+App
+- An App has many Users [X]
+- An App has many Contacts  [X]
+- App has many Visits 
+
+- An App has many Visitors [X]
+- An App has many Pages  []
+
+Contacts - Person who gives email
+- Contact Belongs to an App  [X]
+- Contact belongs to a user [X]
+- Contact has many Visits 
+
+
+- Contact has_many contacts_visitors []
+- Contact has many visitors []
+
+
+Objects
+
+(Join Table) Contacts_Visitors
+- Belongs_to :contact
+- belongs_to :visitor 
+
+
+
+
+Visitor - Person who visits the website
+- Visitor Belongs to an App  [X]
+- Visitor belongs to a user [X]
+
+
+- Visitor has_many contacts_visitors  []
+- Visitor belongs to a Contact []
+- Visitor has many Pages []
+
+
+
+Page - Page created by a User
+- Page belongs to a User
+- Page belongs to a App
+- Page has many visitors
+
+
+
+
+
+
 User Story
 
 General Format
@@ -85,59 +145,6 @@ See a view of a website visitors that visit page -> user/visitors
 
 
 
-
-Contact  | Visitor 
-   Sally        12345
-
-
-
-User - Person who owns the CRM
-- User belongs to Apps    [X]
-- User has many contacts   [X] 
-- User can have many pages  
-
-App
-- An App has many Users [X]
-- An App has many Contacts  [X]
-
-- An App has many Visitors [X]
-- An App has many Pages  []
-
-Contacts - Person who gives email
-- Contact Belongs to an App  [X]
-- Contact belongs to a user [X]
-
-
-- Contact has_many contacts_visitors []
-- Contact has many visitors []
-
-
-Objects
-
-(Join Table) Contacts_Visitors
-- Belongs_to :contact
-- belongs_to :visitor 
-
-
-
-
-Visitor - Person who visits the website
-- Visitor Belongs to an App  [X]
-- Visitor belongs to a user [X]
-
-
-- Visitor has_many contacts_visitors  []
-- Visitor belongs to a Contact []
-- Visitor has many Pages []
-
-
-
-Page - Page created by a User
-- Page belongs to a User
-- Page belongs to a App
-- Page has many visitors
-
-
 Controller Jobs
 Contacts Controller - Job is to create when visitor gives email
 
@@ -148,10 +155,6 @@ sessions Controller - Know if the same user is coming in or not
 
 
 Validations 
-
-
-
-
 
 
 

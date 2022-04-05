@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    # skip_before_action :track_ahoy_visit, only: [:omniauth, :new, :create, :destroy]
+    
 
     #google oauth method 
     def omniauth 
