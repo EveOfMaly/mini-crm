@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_04_03_180812) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contact_visitor_joins", force: :cascade do |t|
+  create_table "contact_visitors", force: :cascade do |t|
     t.integer "contact_id"
     t.integer "visitor_id"
     t.datetime "created_at", precision: 6, null: false

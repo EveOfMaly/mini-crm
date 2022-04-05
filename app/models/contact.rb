@@ -1,6 +1,6 @@
 class Contact < ApplicationRecord
-    has_many :contacts_visitors
-    has_many :visitors, through: :contacts_visitors
+    has_many :contact_visitors
+    has_many :visitors, through: :contact_visitors
     has_many :identities
     has_many :visitors, through: :identities
     

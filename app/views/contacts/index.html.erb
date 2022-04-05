@@ -1,4 +1,3 @@
-
 <div class="table">
 <div class="table-wrapper">
 <table>
@@ -21,14 +20,15 @@
     <% @contacts.each do |contact|  %>
     <tr>
         <td><%= link_to contact.name, app_contact_path(@app, contact.id) %></td>
-        <td><%   contact.name %></td>
-        <td><%   contact.name %></td>
-        <td><%   contact.name %></td>
-        <td><%   contact.name %></td>
-        <td><%   contact.name %></td>
-        <td><%   contact.name %></td>
-        <td><%   contact.name %></td>
-        <td><%   contact.name %></td>
+        <td><%=   contact.spent %></td>
+        <td><%=   contact.age %></td>
+        <td><%=   contact.email %></td>
+        <td><%=   contact.gender %></td>
+        <td><%=   contact.first_seen %></td>
+        <td><%=   contact.last_visit %></td>
+        <td><%=   contact.region %></td>
+        <td><%=   contact.city %></td>
+        <td><%=   contact.country_code %></td>
     </tr>
     <% end %>
 </tbody>

@@ -1,0 +1,40 @@
+<div class="table">
+<div class="table-wrapper">
+<table>
+<thead>
+    <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Spent</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>First Seen</th>
+    <th>Last Visit</th>
+    <th>Region</th>
+    <th>City</th>
+    <th>Country Code</th>
+    </tr>
+</thead>
+<tbody>
+    <% @visitors.each do |visitor|  %>
+    <tr>
+        <td><%= link_to visitor.name, app_visitor_path(@app, visitor.id) %></td>
+        <td><%=   visitor.spent %></td>
+        <td><%=   visitor.age %></td>
+        <td><%=   visitor.email %></td>
+        <td><%=   visitor.gender %></td>
+        <td><%=   visitor.first_seen %></td>
+        <td><%=   visitor.last_visit %></td>
+        <td><%=   visitor.region %></td>
+        <td><%=   visitor.city %></td>
+        <td><%=   visitor.country_code %></td>
+    </tr>
+    <% end %>
+</tbody>
+</table>
+</div>
+</div>
+
+
+

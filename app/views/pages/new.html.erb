@@ -1,2 +1,17 @@
 New Page 
 
+<%= form_for @page, url: app_pages_path(@app) do |f|  %>
+    <%= f.select :title, ['Sample Landing Page']%> <br>
+
+    <%= f.hidden_field :app_id, value: params[:app_id] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    
+    <%= f.label :title %><br> 
+    <%=f.text_field :title %><br>
+
+    <%= f.submit  %>
+
+<% end %>
+
+
+

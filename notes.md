@@ -5,29 +5,29 @@ General Format
 - I want <some goal>
 - So that <some reason>
 
-Homepage of static#home [X]
+Homepage of static#home []
 - As a guest 
 - I want to get information on the app
 - So I can start to get information on my audience
 
-More Information -> welcome-to-crm [[X]]
+More Information -> welcome-to-crm [[]]
 - As a guest
 - I want to understand if this product is for me
 - So I can start to get information on my audience
 
-User Sign up  -> /signup [X]]
+User Sign up  -> /signup []]
 - As a guest 
 - I want to signup witouth oauth or without oauth
 - So I can start to get information on my audience.
 
 
-Login User - > /login [[X]]
+Login User - > /login [[]]
 - As a user 
 - I want to login to my account and see my data
 - So that I can continue my session.
 
 
-Log out User  -> /logout  []
+Log out User  -> /logout  []]
 - As a user 
 - I want to lougout of my account
 - So that I end my session 
@@ -36,7 +36,7 @@ Below actions require logged in
 
 Have instructions on how to use the tool   -> /user/app/home
 
-See a list of all my contacts -> /app/XXX/contacts  -> contacts#index
+See a list of all my contacts -> /app/XXX/contacts  -> contacts#index [X]
 - As a user 
 - I want to create a new contact
 - So tha
@@ -92,17 +92,15 @@ Contact  | Visitor
 
 
 User - Person who owns the CRM
-- User has many Apps [X]
-- User has many contacts  [X]
-
-- User has many visitors  []
-- User can have many pages  []
+- User belongs to Apps    [X]
+- User has many contacts   [X] 
+- User can have many pages  
 
 App
 - An App has many Users [X]
-- An App has many Contacts  []
+- An App has many Contacts  [X]
 
-- An App has many Visitors []
+- An App has many Visitors [X]
 - An App has many Pages  []
 
 Contacts - Person who gives email
@@ -124,13 +122,13 @@ Objects
 
 
 Visitor - Person who visits the website
-- Contact Belongs to an App  []
+- Visitor Belongs to an App  [X]
+- Visitor belongs to a user [X]
+
+
 - Visitor has_many contacts_visitors  []
 - Visitor belongs to a Contact []
 - Visitor has many Pages []
-
-
-
 
 
 

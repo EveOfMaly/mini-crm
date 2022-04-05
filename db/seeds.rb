@@ -9,9 +9,13 @@
 
 
 #Create two users 
-user1 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: "test" )
-user2 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: "test" )
 
+app1 = App.create 
+
+app2 =  App.create
+user1 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: "test", app:  app1  )
+user2 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: "test", app:  app2  )
+user3 =  User.create(username: Faker::Name.name, email: Faker::Internet.email, password: "test", app:  app2  )
 #create 2 contacts for user1 and 2 for user2
 2.times do 
     Contact.create(name: Faker::Name.name, spent: 1000, age: 10, gender: "male", email: Faker::Internet.email, app_id: App.first.id, user_id: user1.id)
@@ -23,9 +27,21 @@ end
 
 #visitors visit the page 
 10.times do 
-    Visitor.create(name: Faker::FunnyName.name, app_id: App.first.id ,contact_id: Contact.first.id)
+    Visitor.create(name: Faker::Name.name, app_id: App.first.id)
 end
 
+10.times do 
+    Visitor.create(name: Faker::Name.name, app_id: App.last.id)
+end
+
+#visitors who becomine contacts 
+
+@contact = Contact.create(name: Faker::Name.name, spent: 1000, age: 10, gender: "female", email: Faker::Internet.email, app_id: App.last.id, user_id: user2.id)
+
+10.times do 
+    @visitor = Visitor.create(name: Faker::Name.name, app_id: App.first.id)
+    @contact << @visitor
+end
 
 
 

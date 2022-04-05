@@ -1,6 +1,6 @@
 class Visitor < ApplicationRecord
-    has_many :contacts_visitors
-    belongs_to :contacts, through: :contacts_visitors
+    has_many :contact_visitors
+    belongs_to :contacts, through: :contact_visitors
     
     has_many :identities
     has_many :contacts, through: :identities
