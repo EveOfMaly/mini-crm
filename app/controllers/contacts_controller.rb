@@ -2,10 +2,6 @@ class ContactsController < ApplicationController
     before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy]
     before_action :set_contacts, only:[:show, :edit, :update, :destroy]
 
-    # skip_before_action :track_ahoy_visit, only: [:index,:new, :create, :show, :edit, :update, :destroy]
-
-
-
     def index
         if params[:app_id]
             @contacts = @app.contacts

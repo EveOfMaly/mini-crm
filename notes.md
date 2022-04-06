@@ -30,6 +30,18 @@ Contacts - Person who gives email
 
 Objects
 
+Ahoy Visit 
+belongs_to :user
+belongs_to :app
+belongs_to Page
+
+Ahoy Event
+belongs_to :user
+belongs_to :app
+belongs_to Page
+
+
+
 (Join Table) Contacts_Visitors
 - Belongs_to :contact
 - belongs_to :visitor 
@@ -51,10 +63,8 @@ Visitor - Person who visits the website
 Page - Page created by a User
 - Page belongs to a User
 - Page belongs to a App
-- Page has many visitors
-
-
-
+- Page has many Ahoy Visits
+- Page has many Ahoy Events
 
 
 

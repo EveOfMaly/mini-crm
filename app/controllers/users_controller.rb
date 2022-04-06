@@ -3,8 +3,7 @@ class UsersController < ApplicationController
     skip_before_action :get_app, only: [:welcome, :welcome_create_lead]
     before_action :set_user, only:[:show, :edit, :update, :destroy]
 
-    # skip_before_action :track_ahoy_visit, only: [:index,:welcome, :welcome_create_lead,:new, :create, :show, :edit, :update, :destroy]
-  
+
 
     def index 
         @users = @app.users

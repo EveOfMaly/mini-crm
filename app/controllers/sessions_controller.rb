@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-    # skip_before_action :track_ahoy_visit, only: [:omniauth, :new, :create, :destroy]
-    
-
+ 
     #google oauth method 
     def omniauth 
         @user = User.from_omniauth(request.env['omniauth.auth'])
@@ -10,6 +8,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
             ahoy.authenticate(@user)
+            
             redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
         else 
             redirect_to "/"

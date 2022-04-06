@@ -4,11 +4,14 @@ class PagesController < ActionController::Base
     before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy]
     before_action :set_page, only:[:show, :edit, :update, :destroy]
 
+    skip_before_action :track_ahoy_visit, only:[:index, :new, :create]
+    
+    after_action :track_action, only: [:show]
 
-    def index 
-        
+
+    def index         
         @pages = @app.pages
-        
+    
     end 
 
     def new 
@@ -25,12 +28,16 @@ class PagesController < ActionController::Base
         else 
             render :new
         end
-        
 
     end
 
     def show 
-        ahoy.track "My first event", language: "Ruby"
+     
+        # if not Ahoy::Event.where(name: "Page:#{@page.id}", properties: current_visit.visit_token).exists?
+        #     ahoy.track "Page:#{@page.id}", current_visit.visit_token
+        #  end
+
+
         @contact = Contact.new
         render layout: '_bio_link'
         # render plain: "You IP address is #{client_ip}"
@@ -52,6 +59,9 @@ class PagesController < ActionController::Base
         params.require(:page).permit(:title, :url, :user_id, :app_id, :owner)
     end
     
+    def track_action
+        ahoy.track "Ran action", request.path_parameters
+    end
 
     
 

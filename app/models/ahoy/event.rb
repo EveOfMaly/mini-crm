@@ -7,6 +7,7 @@ class Ahoy::Event < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :app, optional: true
   belongs_to :page, optional: true
+  # belongs_to :page, optional: true
 
   serialize :properties, JSON
 end
