@@ -8,7 +8,7 @@ class Visitor < ApplicationRecord
     has_many :pages
     belongs_to :app_id
 
-    visitable :ahoy_visits
+    visitable :ahoy_visit
 
 
 

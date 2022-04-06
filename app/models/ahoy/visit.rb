@@ -4,4 +4,5 @@ class Ahoy::Visit < ApplicationRecord
   has_many :events, class_name: "Ahoy::Event"
   belongs_to :user, optional: true
   belongs_to :visitor, optional: true
+  belongs_to :app, optional: true
 end

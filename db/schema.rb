@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
   end
 
   create_table "apps", force: :cascade do |t|
+    t.bigint "ahoy_visit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
     t.integer "user_id"
     t.string "owner"
     t.integer "app_id"
+    t.bigint "ahoy_visit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
