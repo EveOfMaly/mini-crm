@@ -6,7 +6,6 @@ class CreatePages < ActiveRecord::Migration[6.1]
         t.integer :user_id
         t.string :owner
         t.integer :app_id
-        t.bigint :ahoy_visit_id
         t.timestamps
     end
   end

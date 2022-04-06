@@ -8,9 +8,9 @@ class User < ApplicationRecord
    
     has_many :pages 
 
-    has_many :ahoy_visits, class_name: "Ahoy::Visit"
-    has_many :ahoy_events, class_name: "Ahoy::Event"
-    
+    has_many :visits, class_name: "Ahoy::Visit"
+    has_many :events, class_name: "Ahoy::Event"
+
     def self.from_omniauth(response)
         @user = User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
             u.username = response[:info][:name]

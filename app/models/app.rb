@@ -5,5 +5,6 @@ class App < ApplicationRecord
     has_many :visitors
     has_many :pages
 
-    visitable :ahoy_visit
+
+    
 end

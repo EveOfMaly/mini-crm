@@ -15,11 +15,9 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
   create_table "ahoy_events", force: :cascade do |t|
     t.integer "visit_id"
     t.integer "user_id"
-    t.integer "app_id"
     t.string "name"
     t.text "properties"
     t.datetime "time"
-    t.index ["app_id"], name: "index_ahoy_events_on_app_id"
     t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time"
     t.index ["user_id"], name: "index_ahoy_events_on_user_id"
     t.index ["visit_id"], name: "index_ahoy_events_on_visit_id"
@@ -29,7 +27,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
     t.string "visit_token"
     t.string "visitor_token"
     t.integer "user_id"
-    t.integer "app_id"
     t.string "ip"
     t.text "user_agent"
     t.text "referrer"
@@ -52,7 +49,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
     t.string "os_version"
     t.string "platform"
     t.datetime "started_at"
-    t.index ["app_id"], name: "index_ahoy_visits_on_app_id"
     t.index ["user_id"], name: "index_ahoy_visits_on_user_id"
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end
@@ -65,7 +61,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
   end
 
   create_table "apps", force: :cascade do |t|
-    t.bigint "ahoy_visit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
