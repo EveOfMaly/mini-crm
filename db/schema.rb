@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
     t.string "visit_token"
     t.string "visitor_token"
     t.integer "user_id"
-    t.integer "apps_id"
-    t.integer "pages_id"
     t.string "ip"
     t.text "user_agent"
     t.text "referrer"
@@ -51,8 +49,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
     t.string "os_version"
     t.string "platform"
     t.datetime "started_at"
-    t.index ["apps_id"], name: "index_ahoy_visits_on_apps_id"
-    t.index ["pages_id"], name: "index_ahoy_visits_on_pages_id"
     t.index ["user_id"], name: "index_ahoy_visits_on_user_id"
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end
@@ -134,6 +130,7 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
     t.string "referring_domain"
     t.string "country_code"
     t.integer "app_id"
+    t.bigint "ahoy_visit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

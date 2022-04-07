@@ -20,15 +20,11 @@
     <% @visitors.each do |visitor|  %>
     <tr>
         <td><%= link_to visitor.name, app_visitor_path(@app, visitor.id) %></td>
-        <td><%=   visitor.spent %></td>
-        <td><%=   visitor.age %></td>
-        <td><%=   visitor.email %></td>
-        <td><%=   visitor.gender %></td>
-        <td><%=   visitor.first_seen %></td>
-        <td><%=   visitor.last_visit %></td>
-        <td><%=   visitor.region %></td>
-        <td><%=   visitor.city %></td>
-        <td><%=   visitor.country_code %></td>
+        <td><%=   visitor.name %></td>
+        <td><%=   visitor.name %></td>
+        <td><%=   visitor.name %></td>
+        <td><%=   visitor.name %></td>
+        <td><%=   visitor.name %></td>
     </tr>
     <% end %>
 </tbody>

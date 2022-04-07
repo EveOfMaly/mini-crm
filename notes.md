@@ -5,22 +5,22 @@ Contact  | Visitor
 
 
 User - Person who owns the CRM
-- User belongs to Apps    [X]
-- User has many contacts   [X]
-- User has many Visits 
-- User can have many pages  
+- User belongs to Apps [X]
+- User has many contacts  [X]
+- User has many Ahoy::Visits [X] #turn off set ApplicationController to track all events if want to turn on
+- User has many Ahoy::Events  [X] #turn off set ApplicationController to track all events if want to turn on
+- User can have many pages    [X]
 
 App
-- An App has many Users [X]
+- An App has many Users [X]]
 - An App has many Contacts  [X]
-- App has many Visits 
 
 - An App has many Visitors [X]
 - An App has many Pages  []
 
 Contacts - Person who gives email
-- Contact Belongs to an App  [X]
-- Contact belongs to a user [X]
+- Contact Belongs to an App  []
+- Contact belongs to a user []
 - Contact has many Visits 
 
 
@@ -28,17 +28,26 @@ Contacts - Person who gives email
 - Contact has many visitors []
 
 
+
+
+Page - Page created by a User
+- Page belongs to a User   [X]
+- Page belongs to a App [X]
+- Page has many Ahoy Visits
+- Page has many Ahoy Events
+
+
+
+
 Objects
 
 Ahoy Visit 
 belongs_to :user
-belongs_to :app
-belongs_to Page
+
 
 Ahoy Event
 belongs_to :user
-belongs_to :app
-belongs_to Page
+
 
 
 
@@ -60,11 +69,15 @@ Visitor - Person who visits the website
 
 
 
-Page - Page created by a User
-- Page belongs to a User
-- Page belongs to a App
-- Page has many Ahoy Visits
-- Page has many Ahoy Events
+
+Notes
+
+A Visitor who visits the show page of Page
+- Each Show Page has a User it belongs to
+- Connect Visitor to that Page User
+
+Find me all visitors from Particular Show that belongs to a User.
+
 
 
 
@@ -80,24 +93,24 @@ Homepage of static#home []
 - I want to get information on the app
 - So I can start to get information on my audience
 
-More Information -> welcome-to-crm [[]]
+More Information -> welcome-to-crm []
 - As a guest
 - I want to understand if this product is for me
 - So I can start to get information on my audience
 
-User Sign up  -> /signup []]
+User Sign up  -> /signup []
 - As a guest 
 - I want to signup witouth oauth or without oauth
 - So I can start to get information on my audience.
 
 
-Login User - > /login [[]]
+Login User - > /login []
 - As a user 
 - I want to login to my account and see my data
 - So that I can continue my session.
 
 
-Log out User  -> /logout  []]
+Log out User  -> /logout  []
 - As a user 
 - I want to lougout of my account
 - So that I end my session 
@@ -165,6 +178,23 @@ sessions Controller - Know if the same user is coming in or not
 
 
 Validations 
+
+Page 
+- Title cannot be blank
+
+User
+- Create a before_action to set the owner 
+
+Content
+- Age has to between 0 - 100
+- First seen is a date - convert format
+- Last seen is a date  - convert format
+
+
+Visitor
+
+
+
 
 
 
@@ -292,3 +322,61 @@ Lead Model
 
 
 
+
+
+-------
+What to Expect from the Project Review
+Project reviews are focused on preparing you for technical interviews (Links to an external site.). Treat project reviews as if they were technical interviews in both attitude and technical presentation.
+
+During your project review, be prepared to:
+
+Explain your code from execution point to exit point. Use the best technical vocabulary you can. (15 minutes)
+Live code. This could be refactoring, adding a new feature, or both. (20 minutes)
+You will also be asked questions that test your knowledge of Rails fundamentals. (10 minutes)
+If any requirements are missing or if significant gaps in understanding are found, be prepared to do one or all of the following:
+
+Submit an improved version
+Meet again for another Project Review
+What won't happen:
+
+You won't be yelled at, belittled, or scolded
+You won't be put on the spot without support
+There's nothing you can do to instantly fail or blow it
+Requirements
+Use the Ruby on Rails framework.
+
+Your models must:
+
+• Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
+
+• Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+
+Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
+
+You must include at least one class level ActiveRecord scope method (Links to an external site.). a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods (Links to an external site.) within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
+
+Your application must provide standard user authentication, including signup, login, logout, and passwords.
+
+Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
+
+You must include and make use of a nested resource with the appropriate RESTful URLs.
+
+• You must include a nested new route with form that relates to the parent resource
+
+• You must include a nested index or show route
+
+Your forms should correctly display validation errors.
+
+a. Your fields should be enclosed within a fields_with_errors class
+
+b. Error messages describing the validation failures must be present within the view.
+
+Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
+
+• Logic present in your controllers should be encapsulated as methods in your models.
+
+• Your views should use helper methods and partials when appropriate.
+
+• Follow patterns in the Rails Style Guide (Links to an external site.) and the Ruby Style Guide (Links to an external site.).
+
+Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.

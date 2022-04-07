@@ -2,17 +2,14 @@ class VisitorsController < ApplicationController
     before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy]
     before_action :set_visitors, only:[:show, :edit, :update, :destroy]
    
-   
+
+# individual_page = Ahoy::Visit.where(landing_page: "http://localhost:3000/apps/1/pages/1").count
+   #loop over and create a visitor 
+   #
     def index 
-        if params[:app_id]
-            @visitor = @app.visitors
-        else 
-            @visitor = Visitor.all 
-        end
-    end
+        @visitors = @app.visitors
+    end    
 
-
-    
     def new 
         @visitor = Visitor.new
     end
@@ -33,13 +30,13 @@ class VisitorsController < ApplicationController
 
     def show 
         @app = App.find(params[:app_id])
-        @visitor = Visitor.find(params[:id])
+        @visitor = @app.visitors
     end
 
 
     def edit 
         @app = App.find(params[:app_id])
-        @visitor = Visitor.find_by(id: params[:id])
+        @visitor = @app.visitors
     end
 
     def update 
@@ -67,6 +64,11 @@ class VisitorsController < ApplicationController
         @visitor = @app.visitors.find(params[:id])
     end
     
+    def convert_ahoy_visit_to_anon_visit
+        binding.pry
+       
+    end
+
 
     def visitor_params 
         params.require(:visitor).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :user_id)

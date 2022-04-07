@@ -26,7 +26,7 @@
         <div class="collapse show" id="home-collapse" style="">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><%= link_to "All Contacts", app_contacts_path(@app) %> <%= @app.contacts.count %></li>
-            <li><%= link_to "All Visitors", app_visitors_path(@app) %></li>
+            <li><%= link_to "All Visitors", app_visitors_path(@app) %> <%= @app.visitors.count %> </li>
             <li><a href="#" class="link-dark rounded">Active</a></li>
             <li><a href="#" class="link-dark rounded">New</a></li>
             <li><a href="#" class="link-dark rounded">Slipping Away</a></li>

@@ -1,7 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
     belongs_to :app
-    
     has_many :contacts
     
     has_many :visitors
@@ -11,6 +10,7 @@ class User < ApplicationRecord
     has_many :visits, class_name: "Ahoy::Visit"
     has_many :events, class_name: "Ahoy::Event"
 
+    #Authenticate using Google 
     def self.from_omniauth(response)
         @user = User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
             u.username = response[:info][:name]
@@ -24,11 +24,6 @@ class User < ApplicationRecord
 
     private
 
-    #create an instance of an app and associate with the user
-    # def set_create_app
-    #     @app = App.create
-    #     self.app = @app 
-    # end
 
     def user_params
         params.require(:user).permit(:username, :password, :email, :uid, :provider)
