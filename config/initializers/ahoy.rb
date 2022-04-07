@@ -1,5 +1,9 @@
 class Ahoy::Store < Ahoy::DatabaseStore
 
+     def geocode(data)
+    super(data)
+  end
+
 
 end
 
@@ -13,3 +17,5 @@ Ahoy.geocode = true
 
 #perform geocoding in the background so it doesn't show down web request
 Ahoy.job_queue = :low_priority
+
+

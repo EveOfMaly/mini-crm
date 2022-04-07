@@ -1,7 +1,8 @@
 class Page < ApplicationRecord
     belongs_to :user
     belongs_to :app
-    has_many :visitors
+    has_many :visitor_pages
+    has_many :visitors, through: :visitor_pages
 
     # visitable :ahoy_visit
 

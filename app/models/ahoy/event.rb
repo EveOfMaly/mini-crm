@@ -12,9 +12,12 @@ class Ahoy::Event < ApplicationRecord
 
    #link ahoy visitor to visitor
   def create_visitor_object 
-    @visitor = Visitor.new(ahoy_visit_id: self.visit_id, app_id:properties["app_id"].to_i) 
-    @visitor.save
+    @visitor = Visitor.new(name: "Anonomous " + Faker::Name.name, first_seen: self.time.to_s,ahoy_visit_id: self.visit_id, app_id:properties["app_id"].to_i) 
+    @page_id = self.properties["id"]
 
+    @visitor.pages << Page.find(@page_id)
+    @visitor.save
+    
   end
 
   serialize :properties, JSON

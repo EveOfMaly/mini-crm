@@ -1,0 +1,2 @@
+class VisitorPagesController < ApplicationController
+end

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
 
     #find client ip if in live if in prduction check on below site
-    def client_ip 
+    def remote_ip 
         if Rails.env.production?
             request.remote_ip
         else

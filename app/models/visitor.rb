@@ -5,7 +5,7 @@ class Visitor < ApplicationRecord
     has_many :identities
     has_many :contacts, through: :identities
     
-    has_many :pages
+    # has_many :pages
     belongs_to :app, optional: true
     # belongs_to :ahoy_visit_id
 
@@ -13,6 +13,9 @@ class Visitor < ApplicationRecord
 
     has_many :visits, class_name: "Ahoy::Visit"
     has_many :events, class_name: "Ahoy::Event"
+
+    has_many :visitor_pages
+    has_many :pages, through: :visitor_pages
 
     # def convert_ahoy_visit_to_anon_visit
     #     binding.pry

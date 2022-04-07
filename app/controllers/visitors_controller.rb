@@ -64,12 +64,6 @@ class VisitorsController < ApplicationController
         @visitor = @app.visitors.find(params[:id])
     end
     
-    def convert_ahoy_visit_to_anon_visit
-        binding.pry
-       
-    end
-
-
     def visitor_params 
         params.require(:visitor).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :user_id)
     end

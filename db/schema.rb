@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_05_143605) do
+ActiveRecord::Schema.define(version: 2022_04_07_191703) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer "visit_id"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
   end
 
   create_table "apps", force: :cascade do |t|
-    t.bigint "ahoy_visit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -117,6 +116,13 @@ ActiveRecord::Schema.define(version: 2022_04_05_143605) do
     t.string "uid", limit: 500
     t.string "provider"
     t.integer "app_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "visitor_pages", force: :cascade do |t|
+    t.integer "visitor_id"
+    t.integer "page_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

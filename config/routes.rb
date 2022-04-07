@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :visitor_pages
   resources :contacts, only: [:index, :new, :show, :create, :edit, :update, :destroy]  #set to admin only
   #welcome page 
   root "static#home"
