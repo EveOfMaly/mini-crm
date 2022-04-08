@@ -2,12 +2,11 @@
 <h2> Sample Show Page </h2>
 <p> This page should associate visitor and every event with a contact when created </h1>
 
-<%= form_for @contact do |f|  %>
 
-    <%= f.label :title %><br> 
-    <%=f.text_field :name %><br>
-
-    <%= f.submit  %>
-
+<%= form_tag ({controller: 'contacts', action: "contact_created_from_page", method: 'post'}) do %>
+    <label> Email: </label> 
+    <input name=contact[email]>
+    <input type=submit value='Submit'>
 <% end %>
+
 

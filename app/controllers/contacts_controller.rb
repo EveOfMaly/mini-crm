@@ -15,7 +15,7 @@ class ContactsController < ApplicationController
     end
 
     def create 
-
+        @app = App.find(params[:app_id])
         @contact = Contact.new(contact_params)
 
         if @contact.save 
@@ -48,6 +48,13 @@ class ContactsController < ApplicationController
 
     def destroy
         @contact = contact.find(params[:id]).destroy
+        redirect_to "/"
+    end
+
+
+    def contact_created_from_page 
+       
+        #go back to original page
         redirect_to "/"
     end
 

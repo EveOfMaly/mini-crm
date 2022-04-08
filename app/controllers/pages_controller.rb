@@ -11,7 +11,6 @@ class PagesController < ActionController::Base
 
     def index         
         @pages = @app.pages
-    
     end 
 
     def new 
@@ -32,12 +31,7 @@ class PagesController < ActionController::Base
     end
 
     def show 
-     
-        # if not Ahoy::Event.where(name: "Page:#{@page.id}", properties: current_visit.visit_token).exists?
-        #     ahoy.track "Page:#{@page.id}", current_visit.visit_token
-        #  end
-
-
+        # @current_visitor = Visitor.find
         @contact = Contact.new
         render layout: '_bio_link'
         # render plain: "You IP address is #{client_ip}"

@@ -2,6 +2,8 @@ class Visitor < ApplicationRecord
     # has_many :contact_visitors
     # belongs_to :contacts, through: :contact_visitors
     
+    # after_create :set_visitor_id
+
     has_many :identities
     has_many :contacts, through: :identities
     
@@ -23,6 +25,10 @@ class Visitor < ApplicationRecord
 
     # end
 
+
+    # def set_visitor_id
+    #     session[:visit_id] = self.visit_id
+    # end
 
 
 end

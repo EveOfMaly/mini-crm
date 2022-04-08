@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :pages
   end
 
+  post "/submission", to: "contacts#contact_created_from_page"
+
   #possibly add verification if main elements are there.
 
   #oauth

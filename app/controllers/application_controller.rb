@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
     # def track_action
     #     ahoy.track "Ran action", request.path_parameters
     # end
+
+    #find the id of the current visitor
+    def current_visitor_ahoy_id
+        return unless session[:visitor_id]
+        @current_visitor ||= Ahoy::Visitor.find(session[:visitor_id])
+    end
     
 
     def require_login 
