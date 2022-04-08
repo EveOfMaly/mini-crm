@@ -95,8 +95,6 @@ ActiveRecord::Schema.define(version: 2022_04_07_191703) do
     t.integer "contact_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["contact_id"], name: "index_identities_on_contact_id"
-    t.index ["visitor_id"], name: "index_identities_on_visitor_id"
   end
 
   create_table "pages", force: :cascade do |t|

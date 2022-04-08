@@ -13,6 +13,7 @@
     <tr>
         <td><%= link_to page.title, app_page_path(@app, page.id) %></td>
         <td><%=   page.title %></td>
+        <td><%=   page.visitors.count %></td>
     </tr>
     <% end %>
 </tbody>

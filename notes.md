@@ -16,16 +16,16 @@ App
 - An App has many Contacts  [X]
 
 - An App has many Visitors [X]
-- An App has many Pages  []
+- An App has many Pages  [X]
 
 Contacts - Person who gives email
-- Contact Belongs to an App  []
-- Contact belongs to a user []
-- Contact has many Visits 
+- Contact Belongs to an App  [X]
+- Contact belongs to a user [X]
+- Contact has many Visits  [] - V 0.1
 
 
-- Contact has_many contacts_visitors []
-- Contact has many visitors []
+- Contact has_many contacts_visitors [] - V 0.1
+- Contact has many visitors [] -  V 0.1
 
 
 
@@ -33,29 +33,33 @@ Contacts - Person who gives email
 Page - Page created by a User
 - Page belongs to a User   [X]
 - Page belongs to a App [X]
-- Page has many Ahoy Visits
-- Page has many Ahoy Events
+Page has many to a visitors [X]
+
 
 
 
 
 Objects
 
-Ahoy Visit 
+Ahoy Visit  [X]
 belongs_to :user
 
 
-Ahoy Event
+Ahoy Event [X]
 belongs_to :user
+belongs_to :vist
 
 
+(Join Table) Visitor_Pages [X]
+- Belongs_to :visitor_id
+- belongs_to :page_id 
 
 
-(Join Table) Contacts_Visitors
+(Join Table) Identities
 - Belongs_to :contact
 - belongs_to :visitor 
 
-
+Jon
 
 
 Visitor - Person who visits the website
@@ -185,11 +189,11 @@ Page
 User
 - Create a before_action to set the owner 
 
-Content
+Contact
 - Age has to between 0 - 100
 - First seen is a date - convert format
 - Last seen is a date  - convert format
-
+- Email is email format
 
 Visitor
 
