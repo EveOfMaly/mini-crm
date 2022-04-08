@@ -52,10 +52,20 @@ class ContactsController < ApplicationController
     end
 
 
-    def contact_created_from_page 
-       
-        #go back to original page
-        redirect_to "/"
+    def contact_created_from_page
+
+        @app = App.find(params[:app_id])
+        @contact = Contact.new(contact_params)
+        @page = Page.find(params[:page_id])
+    
+        @contact.app = @app 
+        @contact.save 
+    
+        redirect_to app_page_path(@app, @page)
+        #     # session[:contact_id] = @contact.id
+        #     # session[:app_id] = @contact.app.id
+        
+
     end
 
 
@@ -72,7 +82,7 @@ class ContactsController < ApplicationController
 
    
     def contact_params 
-        params.require(:contact).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :user_id, :visitor_id)
+        params.require(:contact).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :visitor_id, :page_id)
     end
 
 

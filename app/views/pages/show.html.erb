@@ -4,6 +4,8 @@
 
 
 <%= form_tag ({controller: 'contacts', action: "contact_created_from_page", method: 'post'}) do %>
+    <%= hidden_field_tag 'app_id', @app.id %>
+    <%= hidden_field_tag 'page_id', @page.id %>
     <label> Email: </label> 
     <input name=contact[email]>
     <input type=submit value='Submit'>
