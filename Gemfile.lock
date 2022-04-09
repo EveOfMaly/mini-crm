@@ -100,7 +100,6 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
     ffi (1.15.5)
-    geocoder (1.7.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -264,7 +263,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   dotenv-rails (~> 2.7)
   faker
-  geocoder
   jbuilder (~> 2.7)
   listen (~> 3.3)
   omniauth

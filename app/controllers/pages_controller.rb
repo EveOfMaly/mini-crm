@@ -9,6 +9,7 @@ class PagesController < ActionController::Base
     after_action :track_action, only: [:show]
 
 
+
     def index         
         @pages = @app.pages
     end 
@@ -33,7 +34,7 @@ class PagesController < ActionController::Base
     def show 
         # @current_visitor = Visitor.find
         @contact = Contact.new
-        render layout: '_bio_link'
+        render layout: 'bio_link'
         # render plain: "You IP address is #{client_ip}"
     end
 

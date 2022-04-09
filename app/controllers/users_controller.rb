@@ -3,10 +3,17 @@ class UsersController < ApplicationController
     skip_before_action :get_app, only: [:welcome, :welcome_create_lead]
     before_action :set_user, only:[:show, :edit, :update, :destroy]
 
-
-
+    before_action :require_login, only: [:index, :show]
+   
+  
+    #admins are able to see a list of users that belong to the app 
+    #all non-admins get redirected to home
     def index 
-        @users = @app.users
+        if current_user.admin == true 
+            @users = @app.users
+        else 
+            redirect_to "/"
+        end
     end
 
     def welcome 

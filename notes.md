@@ -55,7 +55,7 @@ belongs_to :vist
 - belongs_to :page_id 
 
 
-(Join Table) Identities
+(Join Table) Identities 
 - Belongs_to :contact
 - belongs_to :visitor 
 

@@ -1,0 +1,11 @@
+<div>
+    <p> Current users that belong to app </p><br>
+    <% @users.each do |user| %><br>
+    <ul>
+        <li><%= link_to user.username, app_user_path(@app, user)  %></li>
+    
+    </ul>
+    <% end %>
+</div>
+
+

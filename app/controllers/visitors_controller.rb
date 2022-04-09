@@ -3,21 +3,15 @@ class VisitorsController < ApplicationController
     before_action :set_visitors, only: [:show, :edit, :update, :destroy]
     
 
-# individual_page = Ahoy::Visit.where(landing_page: "http://localhost:3000/apps/1/pages/1").count
-   #loop over and create a visitor 
-   #
+    #display a list of all visitors on the app that belong to the instance of an app
     def index 
-   
-        @visitors = @app.visitors
-    end    
-
-    def new 
-        @visitor = Visitor.new
+        @visitors = @app.visitor
     end
+
 
    
     def create 
-    
+        binding.pry
         @visitor = Visitor.new(visitor_params)
 
         if @visitor.save 

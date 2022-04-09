@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_191703) do
     t.string "uid", limit: 500
     t.string "provider"
     t.integer "app_id"
+    t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

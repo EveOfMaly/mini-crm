@@ -40,7 +40,6 @@ end
 
 10.times do 
     @visitor = Visitor.create(name: Faker::Name.name, app_id: App.first.id)
-    @contact << @visitor
 end
 
 
