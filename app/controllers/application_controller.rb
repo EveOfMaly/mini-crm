@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
     include SessionsHelper
 
 
-    # def track_action
-    #     ahoy.track "Ran action", request.path_parameters
-    # end
-
     #find the id of the current visitor
     def current_visitor_ahoy_id
         return unless session[:visitor_id]
@@ -30,6 +26,12 @@ class ApplicationController < ActionController::Base
             Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
         end
     end
+
+    #get the app_id
+    def get_app
+        @app =  App.find(params[:app_id])
+    end
+
 
  
 

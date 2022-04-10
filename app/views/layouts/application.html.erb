@@ -27,9 +27,6 @@
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><%= link_to "All Contacts", app_contacts_path(@app) %> <%= @app.contacts.count %></li>
             <li><%= link_to "All Visitors", app_visitors_path(@app) %> <%= @app.visitors.count %> </li>
-            <li><a href="#" class="link-dark rounded">Active</a></li>
-            <li><a href="#" class="link-dark rounded">New</a></li>
-            <li><a href="#" class="link-dark rounded">Slipping Away</a></li>
           </ul>
         </div>
       </li>
@@ -40,6 +37,9 @@
         </button>
         <div class="collapse show" id="account-collapse" style="">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <% if current_user.admin == true %>
+          <li><%= link_to "All Users", app_users_path(@app) %></li>
+          <% end %>
           <li><%= link_to "All Pages", app_pages_path(@app) %></li>
           <li><%= link_to "New Page", new_app_page_path(@app) %></li>
             <li><%= link_to "New Contact", new_app_contact_path(@app) %></li>

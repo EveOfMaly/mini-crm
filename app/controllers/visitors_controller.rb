@@ -4,8 +4,8 @@ class VisitorsController < ApplicationController
     
 
     #display a list of all visitors on the app that belong to the instance of an app
-    def index 
-        @visitors = @app.visitor
+    def index
+        @visitors = @app.visitors
     end
 
 

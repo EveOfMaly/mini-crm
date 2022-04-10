@@ -1,1 +1,30 @@
-User Show Page 
+
+
+<div class="table">
+<div class="table-wrapper">
+<table>
+<thead>
+    <tr>
+    <th>User</th>
+    <th>Email</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td><%= @user.username %> </td>
+        <td><%= @user.email %> </td>
+        <td><%=  link_to "Edit",  edit_app_user_path(@app, @user) %></td>
+        <td><%= button_to "Delete",{controller: 'users', action: 'destroy'}, method: 'delete' %></td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+
+

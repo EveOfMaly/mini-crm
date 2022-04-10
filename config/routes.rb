@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
    
     
-  resources :users, only: [:index, :new, :create] #set some of routes only for admin
+  resources :users, only: [:index, :create] #set some of routes only for admin
   resources :visitors, only: [:index, :new, :create]
  
 

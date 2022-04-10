@@ -16,23 +16,17 @@ class UsersController < ApplicationController
         end
     end
 
+    #landing page view with the goal of getting the email(lead). 
+    #Possibly connect to email tool
     def welcome 
         @user = User.new
         render layout: 'welcome'
     end
 
+    #form to create a new instance of a user 
     def welcome_create_lead
         @user = User.new(user_params)
         render layout: false
-    end
-
-    def show 
-        @user = User.find_by(id: params[:id])
-    end
-        
-
-    def new 
-        @user = User.new
     end
 
     def create 
@@ -48,19 +42,26 @@ class UsersController < ApplicationController
 
     end
 
+    #action to view user profile
+    def show 
+        
+    end
+        
+
     def edit 
-        @user = User.find_by(id: params[:id])
+
     end
 
     def update 
-        @user = User.find_by(id: params[:id])
         @user.update(user_params)
         redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
     end
 
 
     def destroy
-        @user = User.find(params[:id]).destroy
+        @user.destroy
+        session.delete :user_id
+        session.delete :app_id
         redirect_to "/"
     end
 
