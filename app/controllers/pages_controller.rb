@@ -7,9 +7,10 @@ class PagesController < ActionController::Base
     skip_before_action :track_ahoy_visit, only:[:index, :new, :create]
     
     after_action :track_action, only: [:show]
+    before_action :require_login, only: [:index, :new, :create]
 
 
-    
+
     def index         
         @pages = @app.pages
     end 
@@ -40,6 +41,11 @@ class PagesController < ActionController::Base
 
 
     private
+
+    def require_login 
+        redirect_to "/" unless session.include? :user_id
+    end
+
 
     def get_app
         @app =  App.find(params[:app_id])

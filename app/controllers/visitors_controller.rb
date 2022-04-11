@@ -1,17 +1,14 @@
 class VisitorsController < ApplicationController
     before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy]
     before_action :set_visitors, only: [:show, :edit, :update, :destroy]
-    
+    before_action :require_login, only: [:index, :create, :show, :edit, :update, :destroy]
 
     #display a list of all visitors on the app that belong to the instance of an app
     def index
         @visitors = @app.visitors
     end
 
-
-   
     def create 
-        binding.pry
         @visitor = Visitor.new(visitor_params)
 
         if @visitor.save 

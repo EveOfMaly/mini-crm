@@ -1,5 +1,19 @@
 
+
 New Contact 
+<div>
+
+<% if @contact.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+  <ul>
+    <% @contact.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @contact, url: app_contacts_path(@app)  do |f| %>
     <h2>Create a new contact </h2><br> <br> 
 
@@ -29,3 +43,4 @@ New Contact
 
     <%= f.submit  %>
 <% end %>
+</div>

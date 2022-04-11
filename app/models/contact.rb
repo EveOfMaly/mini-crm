@@ -5,4 +5,6 @@ class Contact < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :app
 
+    validates :email, presence: true
+
 end
