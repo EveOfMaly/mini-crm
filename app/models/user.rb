@@ -10,6 +10,9 @@ class User < ApplicationRecord
     has_many :visits, class_name: "Ahoy::Visit"
     has_many :events, class_name: "Ahoy::Event"
 
+    validates :username, :password, :email, presence: true
+
+
     #Authenticate using Google 
     def self.from_omniauth(response)
         @user = User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|

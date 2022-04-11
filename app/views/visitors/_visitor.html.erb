@@ -1,0 +1,8 @@
+<tr>
+        <td><%= link_to visitor.name, app_visitor_path(@app, visitor.id) %></td>
+        <td><%=  Ahoy::Event.where(visit_id: visitor.ahoy_visit_id).count %></td>
+        <td><%=   visitor.created_at %></td>
+        <td><%=    %></td>
+        <td><%=   %></td>
+        <td><%=  %></td>
+</tr>

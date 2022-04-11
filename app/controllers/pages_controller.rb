@@ -9,7 +9,7 @@ class PagesController < ActionController::Base
     after_action :track_action, only: [:show]
 
 
-
+    
     def index         
         @pages = @app.pages
     end 

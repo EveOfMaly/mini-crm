@@ -1,35 +1,6 @@
-<div class="table">
-<div class="table-wrapper">
-<table>
-<thead>
-    <tr>
-    <th></th>
-    <th>Name</th>
-    <th>Spent</th>
-    <th>Age</th>
-    <th>Email</th>
-    <th>Gender</th>
-    <th>First Seen</th>
-    <th>Last Visit</th>
-    <th>Region</th>
-    <th>City</th>
-    <th>Country Code</th>
-    </tr>
-</thead>
-<tbody>
+<%= render partial: "contacts/contact_table_headings" %>
     <% @contacts.each do |contact|  %>
-    <tr>
-        <td><%= link_to contact.name, app_contact_path(@app, contact.id) %></td>
-        <td><%=   contact.spent %></td>
-        <td><%=   contact.age %></td>
-        <td><%=   contact.email %></td>
-        <td><%=   contact.gender %></td>
-        <td><%=   contact.first_seen %></td>
-        <td><%=   contact.last_visit %></td>
-        <td><%=   contact.region %></td>
-        <td><%=   contact.city %></td>
-        <td><%=   contact.country_code %></td>
-    </tr>
+        <%= render partial: "contacts/contact", locals: {contact: contact} %>
     <% end %>
 </tbody>
 </table>

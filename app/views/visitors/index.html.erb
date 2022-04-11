@@ -1,32 +1,11 @@
-<div class="table">
-<div class="table-wrapper">
-<table>
-<thead>
-    <tr>
-    <th>Anonomous Visitor</th>
-    <th>Unique Visits</th>
-    <th>First Seen</th>
-    <th>Last Visit</th>
-    <th>Region</th>
-    <th>City</th>
-    <th>Country Code</th>
-    </tr>
-</thead>
-<tbody>
+<%= render partial: "visitors/visitor_table_headings" %>
     <% @visitors.each do |visitor|  %>
-    <tr>
-        <td><%= link_to visitor.name, app_visitor_path(@app, visitor.id) %></td>
-        <td><%=  Ahoy::Event.where(visit_id: visitor.ahoy_visit_id).count %></td>
-        <td><%=   visitor.created_at %></td>
-        <td><%=    %></td>
-        <td><%=   %></td>
-        <td><%=  %></td>
-    </tr>
+        <%= render partial: "visitors/visitor", locals: {visitor: visitor} %>
     <% end %>
 </tbody>
 </table>
 </div>
 </div>
-
+ 
 
 

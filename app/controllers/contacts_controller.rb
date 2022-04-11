@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
     before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy]
     before_action :set_contacts, only:[:show, :edit, :update, :destroy]
 
+    #list of all contacts
     def index
         if params[:app_id]
             @contacts = @app.contacts
@@ -10,6 +11,7 @@ class ContactsController < ApplicationController
         end
     end
 
+    #create a new contact
     def new 
         @contact = Contact.new
     end
@@ -28,14 +30,13 @@ class ContactsController < ApplicationController
 
     end
 
+    #show contact information
     def show 
-        @app = App.find(params[:app_id])
         @contact = Contact.find(params[:id])
     end
 
 
     def edit 
-        @app = App.find(params[:app_id])
         @contact = Contact.find_by(id: params[:id])
     end
 
@@ -78,13 +79,10 @@ class ContactsController < ApplicationController
     def set_contacts 
         @contact = @app.contacts.find(params[:id])
     end
-    
 
    
     def contact_params 
         params.require(:contact).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :visitor_id, :page_id)
     end
-
-
 
 end

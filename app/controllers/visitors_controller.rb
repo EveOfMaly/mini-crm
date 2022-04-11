@@ -24,25 +24,21 @@ class VisitorsController < ApplicationController
     end
 
     def show 
-        @app = App.find(params[:app_id])
-        @visitor = @app.visitors
+ 
     end
 
 
     def edit 
-        @app = App.find(params[:app_id])
-        @visitor = @app.visitors
+       
     end
 
     def update 
-        @visitor = Visitor.find_by(id: params[:id])
         @visitor.update(visitor_params)
         redirect_to app_visitors_path(@visitor.app)
 
     end
 
     def destroy
-        @visitor = Visitor.find(params[:id]).destroy
         redirect_to "/"
     end
 

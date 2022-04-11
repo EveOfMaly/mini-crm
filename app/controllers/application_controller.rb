@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
     # after_action :track_action
     # skip_before_action :track_ahoy_visit
-
-
-
+    
     include SessionsHelper
 
 
@@ -13,7 +11,7 @@ class ApplicationController < ActionController::Base
         @current_visitor ||= Ahoy::Visitor.find(session[:visitor_id])
     end
     
-
+    #if user isn't logged in redirect to home
     def require_login 
         redirect_to "/" unless session.include? :user_id
     end
