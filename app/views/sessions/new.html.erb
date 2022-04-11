@@ -1,10 +1,33 @@
+<% if flash[:message] %>
+      <div class="notice"><%= flash[:message] %></div>
+<% end %>
+
+
+
 <%= button_to('Log in with Google', '/auth/google_oauth2', method: :post) %>
 
 <%= form_tag ({controller: 'sessions', action: "create", method: 'post'}) do %>
-    <label> Username: </label> 
-    <input name=username>
-    <label> password: <label>
-    <input name=password>
+
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <ul>
+            <% @user.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+    <% end %>
+
+    
+    <div class="field <%= ' field_with_errors' if @user.errors[:username].any? %>">
+        <label> Username: </label> 
+        <input name=username>
+    </div>
+    
+    <div class="field <%= ' field_with_errors' if @user.errors[:password].any? %>">
+        <label> password: <label>
+        <input name=password>
+    </div>
     <input type=submit value='Sign In'>
 <% end %>
 

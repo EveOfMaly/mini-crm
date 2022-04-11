@@ -15,9 +15,10 @@ class SessionsController < ApplicationController
         end
     end
 
-    #form signup paths
+    #form signin paths
     def new 
-        render layout: false
+        @user = User.new
+        render layout: 'sign_in_form'
     end
 
     #login
@@ -29,6 +30,7 @@ class SessionsController < ApplicationController
             ahoy.authenticate(@user)
             redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
         else 
+            flash[:message] = "Please enter a valid username and password"
             redirect_to "/login"
         end
     end

@@ -1,45 +1,51 @@
-
-
 New Contact 
 <div>
-
-<% if @contact.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-  <ul>
-    <% @contact.errors.each do |error| %>
-      <li><%= error.full_message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for @contact, url: app_contacts_path(@app)  do |f| %>
+    <% if @contact.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+            <ul>
+            <% @contact.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+    <% end %>
+
     <h2>Create a new contact </h2><br> <br> 
 
-    
     <%= f.hidden_field :app_id, value: params[:app_id] %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <br>
+    
+    <div class="field <%= ' field_with_errors' if @contact.errors[:name].any? %>">
+        <%= f.label :name %><br> 
+        <%=f.text_field :name %><br>
+     </div>
 
+     <div class="field <%= ' field_with_errors' if @contact.errors[:spent].any? %>">
+        <%= f.label :spent %><br> 
+        <%=f.text_field :spent %><br>
+     </div>
 
-     <%= f.label :name %><br> 
-     <%=f.text_field :name %><br>
+     <div class="field <%= ' field_with_errors' if @contact.errors[:email].any? %>">
+        <%= f.label :email %><br> 
+        <%=f.text_field :email %><br>
+     </div>
 
-     <%= f.label :spent %><br> 
-     <%=f.text_field :spent %><br>
+     <div class="field <%= ' field_with_errors' if @contact.errors[:first_seen].any? %>">
+        <%=f.label :first_seen %><br>
+        <%=f.text_field :first_seen %><br>
+     </div>
 
-     <%= f.label :email %><br> 
-     <%=f.text_field :email %><br>
-
-     <%=f.label :first_seen %><br>
-     <%=f.text_field :first_seen %><br>
-
-     <%=f.label :last_visit %><br>
-     <%=f.text_field :last_visit %><br>
+     <div class="field <%= ' field_with_errors' if @contact.errors[:last_visit].any? %>">
+        <%=f.label :last_visit %><br>
+        <%=f.text_field :last_visit %><br>
+     </div>
       
-     <%=f.label :city %><br>
-     <%=f.text_field :city %><br>
+     <div class="field <%= ' field_with_errors' if @contact.errors[:city].any? %>">
+        <%=f.label :city %><br>
+        <%=f.text_field :city %><br>
+     </div>
 
     <%= f.submit  %>
 <% end %>
