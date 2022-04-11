@@ -1,89 +1,57 @@
 
+Models
 
-Contact  | Visitor 
-   Sally        12345
+App - Instance of an CRM Application
+- An App has many Users 
+- An App has many Contacts  
+- An App has many Visitors 
+- An App has many Pages  
 
-
-User - Person who owns the CRM
-- User belongs to Apps [X]
-- User has many contacts  [X]
-- User has many Ahoy::Visits [X] #turn off set ApplicationController to track all events if want to turn on
-- User has many Ahoy::Events  [X] #turn off set ApplicationController to track all events if want to turn on
-- User can have many pages    [X]
-
-App
-- An App has many Users [X]]
-- An App has many Contacts  [X]
-
-- An App has many Visitors [X]
-- An App has many Pages  [X]
+User - Individual who uses the CRM
+- User belongs to Apps 
+- User has many Contacts  
+- User has many Visitors    
+- User has  many Pages    
+- User has many Ahoy::Visits  #turned off set ApplicationController to track all events if want to turn on
+- User has many Ahoy::Events   #turned off set ApplicationController to track all events if want to turn on
 
 Contacts - Person who gives email
-- Contact Belongs to an App  [X]
-- Contact belongs to a user [X]
-- Contact has many Visits  [] - V 0.1
+- Contact Belongs to an App  
+- Contact belongs to a User 
+- Contact has many Visitors through Identities  
+- Contact has many Identities 
 
+(Join - with Many:Many x 2)
+Visitor - Person who visits the website
+- Visitor has many Identities 
+- Visitor has many Contact through Identities 
+- Visitor Belongs to an App  
+- Visitor has many Ahoy::Visits
+- Visitor has many Ahoy::Events
+- Visitor has many Visitor_Pages
+- Visiot has many Pages through Visitor_Pages
+- Visitor has many Visitor_Pages
 
-- Contact has_many contacts_visitors [] - V 0.1
-- Contact has many visitors [] -  V 0.1
-
-
-
+Identity
+- belongs_to :contact
+- belongs_to :visitor
 
 Page - Page created by a User
-- Page belongs to a User   [X]
-- Page belongs to a App [X]
-Page has many to a visitors [X]
+- Page belongs to a User   
+- Page belongs to a App 
+- has_many :visitor_pages
+- has_many :visitors, through: :visitor_pages
+- has_many :ahoy_visits, class_name: "Ahoy::Visit"
+- has_many :ahoy_events, class_name: "Ahoy::Event"
 
 
+Ahoy Visit 
+- Ahoy::Visit belongs_to :user
+- Ahoy::Visit has_many events
 
-
-
-Objects
-
-Ahoy Visit  [X]
-belongs_to :user
-
-
-Ahoy Event [X]
-belongs_to :user
-belongs_to :vist
-
-
-(Join Table) Visitor_Pages [X]
-- Belongs_to :visitor_id
-- belongs_to :page_id 
-
-
-(Join Table) Identities 
-- Belongs_to :contact
-- belongs_to :visitor 
-
-Jon
-
-
-Visitor - Person who visits the website
-- Visitor Belongs to an App  [X]
-- Visitor belongs to a user [X]
-
-
-- Visitor has_many contacts_visitors  []
-- Visitor belongs to a Contact []
-- Visitor has many Pages []
-
-
-
-
-Notes
-
-A Visitor who visits the show page of Page
-- Each Show Page has a User it belongs to
-- Connect Visitor to that Page User
-
-Find me all visitors from Particular Show that belongs to a User.
-
-
-
+Ahoy Event
+- Ahoy::Event belongs_to :user
+- Ahoy::Visit hbelongs_to :visit
 
 User Story
 
@@ -351,37 +319,90 @@ Use the Ruby on Rails framework.
 
 Your models must:
 
-• Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
+• Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships [X]
 
- 
-• Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
-- Identities & Visitor PAges
-Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
+Models
+
+App - Instance of an CRM Application
+- An App has many Users [X]]
+- An App has many Contacts  [X]
+- An App has many Visitors [X]
+- An App has many Pages  [X]
+
+User - Individual who uses the CRM
+- User belongs to Apps [X]
+- User has many Contacts  [X]
+- User has many Visitors    [X]
+- User has  many Pages    [X]
+- User has many Ahoy::Visits [X] #turned off set ApplicationController to track all events if want to turn on
+- User has many Ahoy::Events  [X] #turned off set ApplicationController to track all events if want to turn on
+
+Contacts - Person who gives email
+- Contact Belongs to an App  [X]
+- Contact belongs to a User [X]
+- Contact has many Visitors through Identities  [X]
+- Contact has many Identities [X]
+
+(Join - with Many:Many x 2)
+Visitor - Person who visits the website
+- Visitor has many Identities [X]
+- Visitor has many Contact through Identities [X]
+- Visitor Belongs to an App  
+- Visitor has many Ahoy::Visits
+- Visitor has many Ahoy::Events
+- Visitor has many Visitor_Pages
+- Visiot has many Pages through Visitor_Pages
+- Visitor has many Visitor_Pages
+
+Identity
+- belongs_to :contact
+- belongs_to :visitor
+
+Page - Page created by a User
+- Page belongs to a User   
+- Page belongs to a App 
+- has_many :visitor_pages
+- has_many :visitors, through: :visitor_pages
+- has_many :ahoy_visits, class_name: "Ahoy::Visit"
+- has_many :ahoy_events, class_name: "Ahoy::Event"
+
+
+Ahoy Visit 
+- Ahoy::Visit belongs_to :user
+- Ahoy::Visit has_many events
+
+Ahoy Event
+- Ahoy::Event belongs_to :user
+- Ahoy::Visit hbelongs_to :visit
+
+• Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user [X]
+
+Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.  [X]
 
 You must include at least one class level ActiveRecord scope method (Links to an external site.). a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods (Links to an external site.) within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
-- To do
-Your application must provide standard user authentication, including signup, login, logout, and passwords.
-- Yes
-Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
-- Google
-You must include and make use of a nested resource with the appropriate RESTful URLs.
-- Yes 
-• You must include a nested new route with form that relates to the parent resource
-- Yes 
-• You must include a nested index or show route
-- Yes
-Your forms should correctly display validation errors.
-- Yes
-a. Your fields should be enclosed within a fields_with_errors class
 
-b. Error messages describing the validation failures must be present within the view.
+Your application must provide standard user authentication, including signup, login, logout, and passwords. [X]
 
-Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
+Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc... [X]
 
-• Logic present in your controllers should be encapsulated as methods in your models.
+You must include and make use of a nested resource with the appropriate RESTful URLs. [X]
 
-• Your views should use helper methods and partials when appropriate.
+• You must include a nested new route with form that relates to the parent resource [X]
 
-• Follow patterns in the Rails Style Guide (Links to an external site.) and the Ruby Style Guide (Links to an external site.).
+• You must include a nested index or show route[X]
 
-Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+Your forms should correctly display validation errors. [X]
+
+a. Your fields should be enclosed within a fields_with_errors class [X]
+
+b. Error messages describing the validation failures must be present within the view. [X]
+
+Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. [X]
+
+• Logic present in your controllers should be encapsulated as methods in your models. [X]
+
+• Your views should use helper methods and partials when appropriate. [X]
+
+• Follow patterns in the Rails Style Guide (Links to an external site.) and the Ruby Style Guide (Links to an external site.). [X]
+
+Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding. [X]

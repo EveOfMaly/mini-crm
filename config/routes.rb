@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
  
   resources :visitor_pages
-  resources :contacts, only: [:index, :new, :show, :create, :edit, :update, :destroy]  #set to admin only
+  resources :contacts, only: [:index]  #set to admin only
   #welcome page 
   root "static#home"
   get "/welcome-to-crm", to: "users#welcome"
   post "/welcome-to-crm", to: "users#welcome_create_lead"
+
+   #see visitor with most visits
+   get "/apps/:app_id/visitors/most-recent", to: "visitors#most_recent", as: "most_recent"
+
 
   #sign-up with google or signup via crm
   get "/signup", to: "users#new"
@@ -14,6 +18,16 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
+
+  post "/submission", to: "contacts#contact_created_from_page"
+
+ 
+  #identify if the user has visitor instance.
+  post "/apps/:app_id/contacts/:id/identify", to: "contacts#identify", as: "identify"
+
+  #oauth
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
+
    
     
   resources :users, only: [:index, :create] #set some of routes only for admin
@@ -30,12 +44,6 @@ Rails.application.routes.draw do
     resources :pages
   end
 
-  post "/submission", to: "contacts#contact_created_from_page"
-
-  #possibly add verification if main elements are there.
-
-  #oauth
-  get '/auth/:provider/callback', to: 'sessions#omniauth'
 
 
 

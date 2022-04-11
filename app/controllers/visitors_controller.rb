@@ -1,5 +1,5 @@
 class VisitorsController < ApplicationController
-    before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy]
+    before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy, :most_recent]
     before_action :set_visitors, only: [:show, :edit, :update, :destroy]
     before_action :require_login, only: [:index, :create, :show, :edit, :update, :destroy]
 
@@ -37,6 +37,11 @@ class VisitorsController < ApplicationController
 
     def destroy
         redirect_to "/"
+    end
+
+
+    def most_recent
+        @most_recent = Visitor.most_recent
     end
 
 

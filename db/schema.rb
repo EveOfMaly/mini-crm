@@ -86,11 +86,14 @@ ActiveRecord::Schema.define(version: 2022_04_07_191703) do
     t.string "country_code"
     t.integer "app_id"
     t.integer "user_id"
+    t.bigint "visitor_token"
+    t.bigint "visitor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "identities", force: :cascade do |t|
+    t.boolean "identity_confirmed", default: false
     t.integer "visitor_id"
     t.integer "contact_id"
     t.datetime "created_at", precision: 6, null: false

@@ -1,7 +1,9 @@
 class ContactsController < ApplicationController
-    before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy]
-    before_action :set_contacts, only:[:show, :edit, :update, :destroy]
+    before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy, :identify]
+    before_action :set_contacts, only:[:show, :edit, :update, :destroy, :identify]
     before_action :require_login, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    
+   
     #list of all contacts
     def index
         if params[:app_id]
@@ -21,8 +23,6 @@ class ContactsController < ApplicationController
         @contact = Contact.new(contact_params)
 
         if @contact.save 
-            # session[:contact_id] = @contact.id
-            # session[:app_id] = @contact.app.id
             redirect_to controller: "contacts", action: 'index'
         else 
             render :new
@@ -61,14 +61,18 @@ class ContactsController < ApplicationController
     
         @contact.app = @app 
         @contact.name = ""
+        @contact.visitor_token = current_visit.visitor_token
+        @contact.visitor_id = current_visit.id
+
         @contact.save 
     
         redirect_to app_page_path(@app, @page)
-        #     # session[:contact_id] = @contact.id
-        #     # session[:app_id] = @contact.app.id
-        
+    
 
     end
+
+
+    
 
 
     private
@@ -83,7 +87,7 @@ class ContactsController < ApplicationController
 
    
     def contact_params 
-        params.require(:contact).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :visitor_id, :page_id)
+        params.require(:contact).permit(:name, :spent, :age, :email, :gender, :first_seen,  :last_visit, :region, :city, :country_code, :app_id, :visitor_id, :visitor_token, :page_id)
     end
 
 end

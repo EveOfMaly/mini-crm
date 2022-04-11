@@ -30,7 +30,20 @@ class ApplicationController < ActionController::Base
         @app =  App.find(params[:app_id])
     end
 
-
+    def identify 
+        Visitor.all.select do |visitor|
+            if @contact.visitor_id == visitor.id
+                @identity = Identity.new(visitor_id: visitor.id, contact_id: @contact.visitor_id)
+                
+                @identity.identity_confirmed = true 
+                @identity.save 
+                flash[:message] = "Contact Identified"
+                redirect_to controller: "contacts", action: 'index', app_id: @contact.app.id
+            else
+                flash[:message] = "Contact Activity not found"
+            end
+        end
+    end
  
 
 end

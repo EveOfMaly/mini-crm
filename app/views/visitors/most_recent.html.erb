@@ -1,6 +1,5 @@
-<%= link_to "most recent",  most_recent_path(@app)  %>
 <%= render partial: "visitors/visitor_table_headings" %>
-    <% @visitors.each do |visitor|  %>
+    <% @most_recent.each do |visitor|  %>
         <%= render partial: "visitors/visitor", locals: {visitor: visitor} %>
     <% end %>
 </tbody>
@@ -8,5 +7,3 @@
 </div>
 </div>
  
-
-

@@ -1,5 +1,6 @@
 <tr>
         <td><%= link_to contact.name, app_contact_path(@app, contact.id) %></td>
+        <td><%= button_to('Identify', identify_path(@app, contact.id), method: :post) %></td>
         <td><%=   contact.spent %></td>
         <td><%=   contact.age %></td>
         <td><%=   contact.email %></td>

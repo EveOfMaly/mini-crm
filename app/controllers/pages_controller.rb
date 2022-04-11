@@ -23,8 +23,6 @@ class PagesController < ActionController::Base
         @page = Page.new(page_params)
 
         if @page.save 
-            # session[:page_id] = @page.id
-            # session[:app_id] = @page.app.id
             redirect_to controller: "pages", action: 'index'
         else 
             render :new
@@ -33,10 +31,11 @@ class PagesController < ActionController::Base
     end
 
     def show 
-        # @current_visitor = Visitor.find
+
         @contact = Contact.new
         render layout: 'bio_link'
         # render plain: "You IP address is #{client_ip}"
+    
     end
 
 
@@ -62,6 +61,7 @@ class PagesController < ActionController::Base
     
     def track_action
         ahoy.track "Ran action", request.path_parameters
+
     end
 
     

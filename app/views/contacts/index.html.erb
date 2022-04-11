@@ -1,3 +1,7 @@
+<% if flash[:message] %>
+      <div class="notice"><%= flash[:message] %></div>
+<% end %>
+
 <%= render partial: "contacts/contact_table_headings" %>
     <% @contacts.each do |contact|  %>
         <%= render partial: "contacts/contact", locals: {contact: contact} %>

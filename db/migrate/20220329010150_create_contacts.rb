@@ -14,6 +14,9 @@ class CreateContacts < ActiveRecord::Migration[6.1]
       t.string :country_code
       t.integer :app_id
       t.integer :user_id
+      t.bigint :visitor_token
+      t.bigint :visitor_id
+
 
       t.timestamps
     end
