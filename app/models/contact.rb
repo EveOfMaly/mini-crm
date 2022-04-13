@@ -7,6 +7,6 @@ class Contact < ApplicationRecord
 
     validates :email, presence: true
 
-    scope :visitor_token_present, -> {where(visitor_token: true)}
+   
 
 end

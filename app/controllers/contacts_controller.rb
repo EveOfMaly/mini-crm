@@ -67,9 +67,27 @@ class ContactsController < ApplicationController
         @contact.save 
     
         redirect_to app_page_path(@app, @page)
-    
 
     end
+
+    #identify if contact has any visitor activity 
+    def identify 
+        @contacts = Contact.all 
+        Visitor.all.select do |visitor|
+            if @contact.visitor_id == visitor.id
+                @identity = Identity.new(visitor_id: visitor.id, contact_id: @contact.visitor_id)
+                
+                @identity.identity_confirmed = true 
+                @identity.save 
+                flash[:message] = "Contact Identified"
+                redirect_to controller: "contacts", action: 'index', app_id: @contact.app.id
+            else
+                flash[:message] = "Contact Activity not found"
+                render :index
+            end
+        end
+    end
+ 
 
 
     
