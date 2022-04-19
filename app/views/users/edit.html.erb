@@ -6,6 +6,7 @@ Edit page
     <%= f.text_field :username %> <br>
     <%= f.label :email %><br>
     <%= f.text_field :email %> <br>
+    <%= f.hidden_field :password, value: @user.password_digest %>
     <%= f.submit  %>
 <% end %>
 </div>

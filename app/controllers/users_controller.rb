@@ -61,6 +61,7 @@ class UsersController < ApplicationController
 
     def update 
         @user.update(user_params)
+        binding.pry
         redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
     end
 
