@@ -23,6 +23,7 @@ class ContactsController < ApplicationController
         @contact = Contact.new(contact_params)
 
         if @contact.save 
+            #new HTTP request and stateless 
             redirect_to controller: "contacts", action: 'index'
         else 
             render :new
@@ -83,7 +84,7 @@ class ContactsController < ApplicationController
                 redirect_to controller: "contacts", action: 'index', app_id: @contact.app.id
             else
                 flash[:message] = "Contact Activity not found"
-                render :index
+                # render :index
             end
         end
     end

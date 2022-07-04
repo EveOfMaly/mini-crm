@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-    before_action :get_app, only: [:index, :show, :edit, :update, :destroy]
-    skip_before_action :get_app, only: [:welcome, :welcome_create_lead]
-    before_action :set_user, only:[:show, :edit, :update, :destroy]
+    before_action :get_app, only: [:index, :show, :edit, :update, :destroy, :sorted_user]
+    before_action :set_user, only:[:show, :edit, :update, :destroy, :sorted_user]
 
     before_action :require_login, only: [:index, :show]
+   
    
   
     #admins are able to see a list of users that belong to the app 
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
     def update 
         @user.update(user_params)
-        binding.pry
+       
         redirect_to controller: "contacts", action: 'index', app_id: @user.app.id
     end
 
@@ -71,6 +71,16 @@ class UsersController < ApplicationController
         session.delete :user_id
         session.delete :app_id
         redirect_to "/"
+    end
+
+
+
+    def sorted_users
+     
+        @users = User.all
+       
+        render layout: false
+
     end
 
     private 
