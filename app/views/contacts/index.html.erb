@@ -1,11 +1,21 @@
-<% if flash[:message] %>
-      <div class="notice"><%= flash[:message] %></div>
-<% end %>
+
 
 <%= render partial: "contacts/contact_table_headings" %>
-    <% @contacts.each do |contact|  %>
-        <%= render partial: "contacts/contact", locals: {contact: contact} %>
+    <% if flash[:message] %>
+        <div class="notice"><%= flash[:message] %></div>
     <% end %>
+    <div>
+        <div class="view-header">
+            <h2>All Contacts</h2>
+            <p>Scroll up or down to see a list of contacts & scroll left or right for my contact information</p>
+            <p>Click identify to see if the contact has visitor information. You will be redirected if there is anything found.</p>
+        </div>
+
+
+        <% @contacts.each do |contact|  %>
+            <%= render partial: "contacts/contact", locals: {contact: contact} %>
+        <% end %>
+    </div>
 </tbody>
 </table>
 </div>

@@ -34,7 +34,7 @@ class PagesController < ActionController::Base
 
         @contact = Contact.new
         render layout: 'bio_link'
-        # render plain: "You IP address is #{client_ip}"
+        # render plain: "You IP address is #{client_ip}" 
     
     end
 
@@ -60,8 +60,7 @@ class PagesController < ActionController::Base
     end
     
     def track_action
-        ahoy.track "Ran action", request.path_parameters
-
+        ahoy.track "Visited Page", request.path_parameters
     end
 
     

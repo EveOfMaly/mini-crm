@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
  
   #identify if the user has visitor instance.
+  get "/apps/:app_id/contacts/:id/identify", to: "contacts#activity", as: "activity"
+
   post "/apps/:app_id/contacts/:id/identify", to: "contacts#identify", as: "identify"
 
   #oauth

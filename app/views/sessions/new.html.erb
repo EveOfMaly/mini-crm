@@ -3,7 +3,6 @@
 <% end %>
 
 
-
 <%= button_to('Log in with Google', '/auth/google_oauth2', method: :post) %>
 
 <%= form_tag ({controller: 'sessions', action: "create", method: 'post'}) do %>
@@ -26,8 +25,9 @@
     
     <div class="field <%= ' field_with_errors' if @user.errors[:password].any? %>">
         <label> password: <label>
-        <input name=password>
+        <%= password_field_tag :password, nil, class:'form-control'%><br/>
     </div>
+    
     <input type=submit value='Sign In'>
 <% end %>
 

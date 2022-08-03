@@ -1,9 +1,9 @@
 class ContactsController < ApplicationController
     before_action :get_app, only: [:index, :new, :show, :edit, :update, :destroy, :identify]
-    before_action :set_contacts, only:[:show, :edit, :update, :destroy, :identify]
+    before_action :set_contacts, only:[:show, :edit, :update, :destroy]
     before_action :require_login, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     
-   
+    after_action :track_action, only: [:contact_created_from_page]
     #list of all contacts
     def index
         if params[:app_id]
@@ -24,6 +24,7 @@ class ContactsController < ApplicationController
 
         if @contact.save 
             #new HTTP request and stateless 
+            flash[:message] = "Contact successfully created"
             redirect_to controller: "contacts", action: 'index'
         else 
             render :new
@@ -54,6 +55,17 @@ class ContactsController < ApplicationController
     end
 
 
+    def activity
+
+        @app = App.find(params[:app_id])
+        @contact = Contact.find_by(id: params[:id])
+        @visitor_id = Ahoy::Visit.find_by(id: @contact.visitor_id)
+        
+        @contact_events = Ahoy::Visit.find_by(id: @contact.visitor_id).events
+        
+    end
+
+
     def contact_created_from_page
 
         @app = App.find(params[:app_id])
@@ -62,6 +74,7 @@ class ContactsController < ApplicationController
     
         @contact.app = @app 
         @contact.name = ""
+        
         @contact.visitor_token = current_visit.visitor_token
         @contact.visitor_id = current_visit.id
 
@@ -73,18 +86,30 @@ class ContactsController < ApplicationController
 
     #identify if contact has any visitor activity 
     def identify 
-        @contacts = Contact.all 
+        
+        #find contact 
+        @contact = Contact.find_by(id: params[:id])
+        @contacts = Contact.all
+
+        @app = App.find(params[:app_id])
+        @visitor_id = Ahoy::Visit.find_by(id: @contact.visitor_id)
+
+        @contact_events = Ahoy::Visit.find_by(id: @contact.visitor_id)
+        
+        
+        # @contacts = Contact.all 
         Visitor.all.select do |visitor|
             if @contact.visitor_id == visitor.id
-                @identity = Identity.new(visitor_id: visitor.id, contact_id: @contact.visitor_id)
+                
+                @identity = Identity.new(visitor_id: visitor.id, contact_id: @contact.id)
                 
                 @identity.identity_confirmed = true 
                 @identity.save 
-                flash[:message] = "Contact Identified"
-                redirect_to controller: "contacts", action: 'index', app_id: @contact.app.id
+                flash[:message] = "Visitor data found"
+                redirect_to activity_path(@app, @contact)
             else
-                flash[:message] = "Contact Activity not found"
-                # render :index
+                flash[:message] = "Contact has not visitor data"
+                # redirect_to app_contacts_path(@app, @contact)
             end
         end
     end
@@ -102,6 +127,10 @@ class ContactsController < ApplicationController
 
     def set_contacts 
         @contact = @app.contacts.find(params[:id])
+    end
+
+    def track_action
+        ahoy.track "Contact Created", request.path_parameters
     end
 
    

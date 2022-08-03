@@ -1,24 +1,48 @@
-# README
+# Mini CRM MVP + Landing Page Tracking Feature
+# About
+  I wanted to create a CRM with Landing Page tracking functionality to practice  Ruby on Rails, MVC architecture, data modeling, ORMs and ActiveRecord Unit: Migrations, & CRUD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Usage
+To use this app, just clone, run rake db:migrate and then run rails S. Everything should be setup. 
 
-Things you may want to cover:
+For production use http:localhost/3000
 
-* Ruby version
+# License Details
+https://github.com/EveOfMaly/reddit-sinatra-clone/blob/main/LICENSE
 
-* System dependencies
+# Current Features
+- App Auth & tGoogle OAuth for users for user sign-in and sign-out
+- User can create a contact
+- User cam see a list of available contacts
+- User can create a page for enable tracking
+- Visitors are created when they visit a page 
+- Identity Management allows a link between a Contact and Visitor data to be made.
+- Users can delete their account
 
-* Configuration
+# Future Features
+- Identity Management 1.1 (Grouping activities) 
+- Improved UX on responsive page.
+- Improved Validations across Models
 
-* Database creation
+# How to Contribute
+Yay, you're interested in helping work on this 
 
-* Database initialization
+# Having a problem?
+- A great way to start a discussion about a potential issue is to submit an issue with the device, OS, and browser info.
 
-* How to run the test suite
+# Have an idea to make it better?
+Again, guard your time and effort. Make sure that you don't spend a lot of time on an improvement without talking through it first.
 
-* Services (job queues, cache servers, search engines, etc.)
+# Pull Requests
+Good Pull Requests include:
 
-* Deployment instructions
+   -  A clear explaination of the problem (or enhancement)
+   -  Clean commit history (squash where it makes sense)
+   -  Relevant Explination of how to test
 
-* ...
+Thank you!
+
+
+
+
+

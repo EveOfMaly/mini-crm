@@ -32,19 +32,20 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bcrypt' 
 
 # #Use IP address to get local information
-# gem 'geocoder'
+gem 'geocoder'
 
 # #Establishes local geocoding for the app to enhance privacy and performance. 
 # gem "maxminddb"
 
+gem "ahoy_matey"
+
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'awesome_print'
   gem 'table_print'
   gem 'faker'
-  gem "ahoy_matey"
 end
 
 group :development do
@@ -74,3 +75,4 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 
 gem "dotenv-rails", "~> 2.7"
+gem 'validates_timeliness', '~> 6.0.0.beta2'
