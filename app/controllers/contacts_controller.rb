@@ -56,7 +56,6 @@ class ContactsController < ApplicationController
 
 
     def activity
-byebug
         @app = App.find(params[:app_id])
         @contact = Contact.find_by(id: params[:id])
         @visitor_id = Ahoy::Visit.find_by(id: @contact.visitor_id)
