@@ -91,12 +91,6 @@ class ContactsController < ApplicationController
         @contact = Contact.find_by(id: params[:id])
         @contacts = Contact.all
 
-        @app = App.find(params[:app_id])
-        @visitor_id = Ahoy::Visit.find_by(id: @contact.visitor_id)
-
-        @contact_events = Ahoy::Visit.find_by(id: @contact.visitor_id)
-        
-        
         # @contacts = Contact.all 
         Visitor.all.select do |visitor|
             if @contact.visitor_id == visitor.id
