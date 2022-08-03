@@ -39,10 +39,10 @@ https://github.com/EveOfMaly/reddit-sinatra-clone/blob/main/LICENSE
 - Improved Validations across Models
 
 # How to Contribute
-Yay, you're interested in helping work on this 
+Yay, you're interested in helping work on this please add issues here: https://github.com/johnkyeremeh/mini-crm/issues
 
 # Having a problem?
-- A great way to start a discussion about a potential issue is to submit an issue with the device, OS, and browser info.
+- A great way to start a discussion about a potential issue is to submit an issue with the device, OS, and browser info. Please add issues here: https://github.com/johnkyeremeh/mini-crm/issues
 
 # Have an idea to make it better?
 Again, guard your time and effort. Make sure that you don't spend a lot of time on an improvement without talking through it first.
