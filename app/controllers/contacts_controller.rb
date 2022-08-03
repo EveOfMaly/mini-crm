@@ -56,7 +56,7 @@ class ContactsController < ApplicationController
 
 
     def activity
-
+byebug
         @app = App.find(params[:app_id])
         @contact = Contact.find_by(id: params[:id])
         @visitor_id = Ahoy::Visit.find_by(id: @contact.visitor_id)
@@ -86,13 +86,15 @@ class ContactsController < ApplicationController
 
     #identify if contact has any visitor activity 
     def identify 
-        
+
         #find contact 
         @contact = Contact.find_by(id: params[:id])
         @contacts = Contact.all
 
+        
         # @contacts = Contact.all 
         Visitor.all.select do |visitor|
+            
             if @contact.visitor_id == visitor.id
                 
                 @identity = Identity.new(visitor_id: visitor.id, contact_id: @contact.id)
@@ -100,7 +102,8 @@ class ContactsController < ApplicationController
                 @identity.identity_confirmed = true 
                 @identity.save 
                 flash[:message] = "Visitor data found"
-                redirect_to activity_path(@app, @contact)
+                redirect_to controller: "contacts", action: 'activity', app_id: @app, contact: @contact
+                # redirect_to activity_path(@app, @contact)
             else
                 flash[:message] = "Contact has not visitor data"
                 # redirect_to app_contacts_path(@app, @contact)
