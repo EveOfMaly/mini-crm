@@ -45,3 +45,6 @@ yarn-debug.log*
 
 #ignore notes
 /notes
+
+# Ignore application configuration
+/config/application.yml

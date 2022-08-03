@@ -34,6 +34,8 @@ gem 'bcrypt'
 # #Use IP address to get local information
 gem 'geocoder'
 
+gem "figaro"
+
 # #Establishes local geocoding for the app to enhance privacy and performance. 
 # gem "maxminddb"
 
