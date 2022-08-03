@@ -1,6 +1,6 @@
 class Ahoy::Store < Ahoy::DatabaseStore
 
-     def geocode(data)
+  def geocode(data)
     super(data)
   end
 

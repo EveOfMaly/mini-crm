@@ -39,9 +39,13 @@ gem "figaro"
 # #Establishes local geocoding for the app to enhance privacy and performance. 
 # gem "maxminddb"
 
+gem 'jquery-rails'
 gem "ahoy_matey"
 
 gem 'pg'
+
+
+
 
 
 
