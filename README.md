@@ -3,11 +3,10 @@
   I wanted to create a CRM with Landing Page tracking functionality to practice  Ruby on Rails, MVC architecture, data modeling, ORMs and ActiveRecord Unit: Migrations, & CRUD
 
 # Video Walkthrough
-  https://share.vidyard.com/watch/zjm2VeKXL4CKkJ3tTpysYR?
+  URL: https://share.vidyard.com/watch/zjm2VeKXL4CKkJ3tTpysYR?
 
 
 # Genenral User Flow for Identity Management.
-
   1. Anonomous Visits Site -> Connect Visitor to Session
   2. Random Visitor ID 12345 (Sally Susa) created
   3. Connects all Ahoy activity to Visitor ID
