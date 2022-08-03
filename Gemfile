@@ -41,6 +41,8 @@ gem "ahoy_matey"
 
 gem 'pg'
 
+gem 'bundler' 
+
 
 
 group :development, :test do
