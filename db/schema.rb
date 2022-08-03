@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2022_04_07_191703) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ahoy_events", force: :cascade do |t|
-    t.integer "visit_id"
-    t.integer "user_id"
+    t.bigint "visit_id"
+    t.bigint "user_id"
     t.string "name"
     t.text "properties"
     t.datetime "time"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_191703) do
   create_table "ahoy_visits", force: :cascade do |t|
     t.string "visit_token"
     t.string "visitor_token"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "ip"
     t.text "user_agent"
     t.text "referrer"
