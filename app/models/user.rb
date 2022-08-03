@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
     validates :username, :password, :email, presence: true
 
+    scope :sorted_users, -> { order(username: :asc ) }
+
 
     #Authenticate using Google 
     def self.from_omniauth(response)

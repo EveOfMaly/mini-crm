@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
  
   #identify if the user has visitor instance.
+  get "/apps/:app_id/contacts/:id/identify", to: "contacts#activity", as: "activity"
+
   post "/apps/:app_id/contacts/:id/identify", to: "contacts#identify", as: "identify"
 
   #oauth
@@ -31,6 +33,10 @@ Rails.application.routes.draw do
    
     
   resources :users, only: [:index, :create] #set some of routes only for admin
+
+  get "/sorted-users", to: "users#sorted_users"
+  post "/sorted-users", to: "users#sorted-users"
+
   resources :visitors, only: [:index, :new, :create]
  
 

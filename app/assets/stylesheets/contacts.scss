@@ -14,3 +14,28 @@
     display: table;
     clear: both;
   }
+
+  .view-header{
+    width: 50%;
+  }
+
+  .alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: black;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }

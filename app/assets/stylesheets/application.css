@@ -26,9 +26,6 @@ body {
     display:flex;
 }
 
-
-
-
 .table {
     margin: 20px;
     padding: 0;
@@ -43,7 +40,7 @@ body {
   }
   
   .table-wrapper {
-    overflow: scroll; //scrollbar added when at overflow
+    overflow: scroll; 
   }
   
   table {
@@ -52,7 +49,6 @@ body {
     border-collapse: collapse;
   }
   
-   // styling for the table header and wrapper
   td, th {
     white-space: nowrap;
     border: 1px solid #ddd;
@@ -85,3 +81,10 @@ body {
     background-color: red;
     display: table;
   }
+
+  .notice{
+    padding: 2px;
+    background-color: red;
+
+  }
+  

@@ -1,0 +1,28 @@
+
+<div>
+<% if flash[:message] %>
+    <div class="notice"><%= flash[:message] %></div>
+<% end %>
+
+    <h2>Activity Feed</h2>
+    <ol class="activity-feed">
+    <% if @contact_events == nil %>
+        <p>No Visitor data</p>
+    <% else %> 
+        <% @contact_events.each do |event|  %>
+            <li class="feed-item">
+                <time class="date"><%=event.time%></time>
+                <span class="text"><%= event.name%></span>
+            </li>
+        <% end %>
+    <% end %>
+    </ol>
+ </div>    
+
+
+
+
+
+
+
+

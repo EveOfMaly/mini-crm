@@ -3,8 +3,7 @@ class SessionsController < ApplicationController
     #google oauth method 
     def omniauth 
         @user = User.from_omniauth(request.env['omniauth.auth'])
-
-        if @user.valid?
+        if @user.persisted?
             session[:user_id] = @user.id
             session[:app_id] = @user.app.id
             ahoy.authenticate(@user)
@@ -24,7 +23,7 @@ class SessionsController < ApplicationController
     #login
     def create 
         @user = User.find_by(username: params[:username])
-        
+     
         if @user.try(:authenticate, params[:password])
             session[:user_id] = @user.id
             ahoy.authenticate(@user)

@@ -1,24 +1,59 @@
-# README
+# Mini CRM MVP + Landing Page Tracking Feature
+# About
+  I wanted to create a CRM with Landing Page tracking functionality to practice  Ruby on Rails, MVC architecture, data modeling, ORMs and ActiveRecord Unit: Migrations, & CRUD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  Genenral User Flow for Identity Management
 
-Things you may want to cover:
+  1. Anonomous Visits Site -> Connect Visitor to Session
+  2. Random Visitor ID 12345 (Sally Susa) created
+  3. Connects all Ahoy activity to Visitor ID
+  4. Visitor created in app 
+  5. Call Identify method
+  5. Identify called using contactname
+  6. Contacts Connected to (visitir)
+  7. Find all contacts with distinct ID connected 
 
-* Ruby version
+# Usage
+To use this app, just clone, run rake db:migrate and then run rails S. Everything should be setup. 
 
-* System dependencies
+For production use http:localhost/3000
 
-* Configuration
+# License Details
+https://github.com/EveOfMaly/reddit-sinatra-clone/blob/main/LICENSE
 
-* Database creation
+# Current Features
+- App Auth & tGoogle OAuth for users for user sign-in and sign-out
+- User can create a contact
+- User cam see a list of available contacts
+- User can create a page for enable tracking
+- Visitors are created when they visit a page 
+- Identity Management allows a link between a Contact and Visitor data to be made.
+- Users can delete their account
 
-* Database initialization
+# Future Features
+- Identity Management 1.1 (Grouping activities) 
+- Improved UX on responsive page.
+- Improved Validations across Models
 
-* How to run the test suite
+# How to Contribute
+Yay, you're interested in helping work on this 
 
-* Services (job queues, cache servers, search engines, etc.)
+# Having a problem?
+- A great way to start a discussion about a potential issue is to submit an issue with the device, OS, and browser info.
 
-* Deployment instructions
+# Have an idea to make it better?
+Again, guard your time and effort. Make sure that you don't spend a lot of time on an improvement without talking through it first.
 
-* ...
+# Pull Requests
+Good Pull Requests include:
+
+   -  A clear explaination of the problem (or enhancement)
+   -  Clean commit history (squash where it makes sense)
+   -  Relevant Explination of how to test
+
+Thank you!
+
+
+
+
+
