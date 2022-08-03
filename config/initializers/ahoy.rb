@@ -4,6 +4,25 @@ class Ahoy::Store < Ahoy::DatabaseStore
     super(data)
   end
 
+  def track_visit(data)
+    # new visit
+    super(data)
+  end
+
+  def track_event(data)
+    # new event
+    super(data)
+  end
+
+  def geocode(data)
+    # visit geocoded
+    super(data)
+  end
+
+  def authenticate(data)
+    # user authenticates
+    super(data)
+  end
 
 end
 
