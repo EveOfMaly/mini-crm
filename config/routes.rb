@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   post "/submission", to: "contacts#contact_created_from_page"
 
+ mount Ahoy::Engine => "/ahoy"
  
   #identify if the user has visitor instance.
   get "/apps/:app_id/contacts/:id/feed", to: "contacts#activity", as: "activity"
