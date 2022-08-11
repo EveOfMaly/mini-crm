@@ -38,7 +38,7 @@ Ahoy.geocode = true
 #perform geocoding in the background so it doesn't show down web request
 Ahoy.job_queue = :low_priority
 
-Ahoy.track_visits_immediately = true
+
 
 
 
