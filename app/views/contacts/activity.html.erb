@@ -10,9 +10,13 @@
         <p>No Visitor data</p>
     <% else %> 
         <% @contact_events.each do |event|  %>
+
             <li class="feed-item">
                 <time class="date"><%=event.time%></time>
                 <span class="text"><%= event.name%></span>
+               <% if event.properties.split.count == 4 %>  
+                 <span class="text"><%=event.properties.split(",")[-1][-3]%></span>
+                <% end %>
             </li>
         <% end %>
     <% end %>

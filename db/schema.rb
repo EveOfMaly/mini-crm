@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_191703) do
     t.string "os_version"
     t.string "platform"
     t.datetime "started_at"
+    t.text "properties"
     t.index ["user_id"], name: "index_ahoy_visits_on_user_id"
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end

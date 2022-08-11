@@ -56,6 +56,7 @@ class ContactsController < ApplicationController
 
 
     def activity
+        
         @app = App.find(params[:app_id])
         @contact = Contact.find_by(id: params[:id])
         @visitor_id = Ahoy::Visit.find_by(id: @contact.visitor_id)
@@ -66,6 +67,8 @@ class ContactsController < ApplicationController
 
 
     def contact_created_from_page
+
+    
 
         @app = App.find(params[:app_id])
         @contact = Contact.new(contact_params)
@@ -94,7 +97,7 @@ class ContactsController < ApplicationController
         # @contacts = Contact.all 
         Visitor.all.select do |visitor|
             
-            if @contact.visitor_id == visitor.id
+            if @contact.visitor_id == visitor.ahoy_visit_id
                 
                 @identity = Identity.new(visitor_id: visitor.id, contact_id: @contact.id)
                 

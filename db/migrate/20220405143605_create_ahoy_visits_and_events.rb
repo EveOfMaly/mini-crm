@@ -43,6 +43,10 @@ class CreateAhoyVisitsAndEvents < ActiveRecord::Migration[6.1]
       t.string :platform
 
       t.datetime :started_at
+
+      t.text :properties
+
+
     end
 
     add_index :ahoy_visits, :visit_token, unique: true
@@ -51,7 +55,6 @@ class CreateAhoyVisitsAndEvents < ActiveRecord::Migration[6.1]
       t.references :visit
       t.references :user
     
-
       t.string :name
       t.text :properties
       t.datetime :time
