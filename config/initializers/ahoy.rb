@@ -41,3 +41,4 @@ Ahoy.job_queue = :low_priority
 Ahoy.track_visits_immediately = true
 
 
+
