@@ -23,8 +23,6 @@ Rails.application.routes.draw do
 
   mount Ahoy::Engine => "/ahoy", as: :my_ahoy
 
-  mount AhoyEmail::Engine => '/ahoy', as: :my_ahoy
-  
   #identify if the user has visitor instance.
   get "/apps/:app_id/contacts/:id/feed", to: "contacts#activity", as: "activity"
 
