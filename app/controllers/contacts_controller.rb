@@ -4,6 +4,7 @@ class ContactsController < ApplicationController
     before_action :require_login, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     
     after_action :track_action, only: [:contact_created_from_page]
+    
     #list of all contacts
     def index
         if params[:app_id]
