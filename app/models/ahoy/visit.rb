@@ -6,9 +6,8 @@ class Ahoy::Visit < ApplicationRecord
   belongs_to :user, optional: true
 
   def create_visitor_object 
-    
+
     @visitor = Visitor.find_or_create_by(ahoy_visit_id: self.id) do |visitor|
-      
       visitor.name = "Anonomous Visitor " + Faker::Name.name
       visitor.first_seen = self.started_at
       visitor.ahoy_visit_id =  self.id
