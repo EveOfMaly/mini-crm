@@ -17,6 +17,10 @@ class Ahoy::Store < Ahoy::DatabaseStore
   # def authenticate(data)
   #   # user authenticates
   # end
+  Ahoy.track_visits_immediately = true
+  Ahoy.geocode = true
+Ahoy.job_queue = :low_priority
+Ahoy.quiet = false
 end
 
 # set to true for JavaScript tracking
@@ -26,6 +30,6 @@ Ahoy.api = true #set to false
 # set to true for geocoding (and add the geocoder gem to your Gemfile)
 # we recommend configuring local geocoding as well
 # see https://github.com/ankane/ahoy#geocoding
-Ahoy.geocode = true
-Ahoy.job_queue = :low_priority
-Ahoy.quiet = false
+# Ahoy.geocode = true
+# Ahoy.job_queue = :low_priority
+# Ahoy.quiet = false
