@@ -20,7 +20,7 @@ class Ahoy::Store < Ahoy::DatabaseStore
 end
 
 # set to true for JavaScript tracking
-Ahoy.api = false #set to false
+Ahoy.api = true #set to false
 
 
 # set to true for geocoding (and add the geocoder gem to your Gemfile)
