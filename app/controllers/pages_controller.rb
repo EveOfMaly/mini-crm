@@ -60,7 +60,7 @@ class PagesController < ActionController::Base
     end
     
     def track_action
-        byebug
+    
         ahoy.track "Visited Page", request.path_parameters
     end
 
