@@ -17,7 +17,7 @@ class Ahoy::Store < Ahoy::DatabaseStore
   # def authenticate(data)
   #   # user authenticates
   # end
-  Ahoy.track_visits_immediately = true
+  Ahoy.api = true
   Ahoy.geocode = true
 Ahoy.job_queue = :low_priority
 Ahoy.quiet = false
