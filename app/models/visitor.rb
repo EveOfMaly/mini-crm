@@ -5,9 +5,9 @@ class Visitor < ApplicationRecord
     belongs_to :app, optional: true
 
 
-    visitable :ahoy_visit
-    # has_many :visits, class_name: "Ahoy::Visit"
-    # has_many :events, class_name: "Ahoy::Event"
+    # visitable :ahoy_visit
+    has_many :visits, class_name: "Ahoy::Visit"
+    has_many :events, class_name: "Ahoy::Event"
 
     has_many :visitor_pages
     has_many :pages, through: :visitor_pages
