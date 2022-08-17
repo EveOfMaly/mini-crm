@@ -13,6 +13,8 @@ class Ahoy::Visit < ApplicationRecord
       visitor.ahoy_visit_id =  self.id
       app_id = self.landing_page.match(/\d+$/).to_s.to_i
       visitor.app_id = app_id
+      
+
       @app = App.find(app_id)
       visitor.pages << @app.pages.find(app_id)
     end
