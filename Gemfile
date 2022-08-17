@@ -40,7 +40,7 @@ gem "figaro"
 # gem "maxminddb"
 
 gem 'jquery-rails'
-gem "ahoy_matey"
+gem "ahoy_matey", github: "ankane/ahoy"
 
 gem 'pg'
 
