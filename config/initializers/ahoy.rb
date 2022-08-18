@@ -35,8 +35,7 @@ Ahoy.api = true
 # we recommend configuring local geocoding as well
 # see https://github.com/ankane/ahoy#geocoding
 Ahoy.geocode = true
-mattr_accessor :auto_mount
-self.auto_mount = false
+
 
 Ahoy.job_queue = :low_priority
 
