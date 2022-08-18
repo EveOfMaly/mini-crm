@@ -9,7 +9,6 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import ahoy from "ahoy.js"
 
-//= require ahoy
 
 
 Rails.start()
