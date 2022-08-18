@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Ahoy::Engine => "/ahoy", as: :my_ahoy
+  mount Ahoy::Engine => "/ahoy"
   
   resources :visitor_pages
   resources :contacts, only: [:index]  #set to admin only
