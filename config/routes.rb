@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
- 
+  mount Ahoy::Engine => "/ahoy", as: :my_ahoy
+  
   resources :visitor_pages
   resources :contacts, only: [:index]  #set to admin only
   #welcome page 
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
 
   post "/submission", to: "contacts#contact_created_from_page"
 
-  mount Ahoy::Engine => "/ahoy", as: :my_ahoy
+
 
   #identify if the user has visitor instance.
   get "/apps/:app_id/contacts/:id/feed", to: "contacts#activity", as: "activity"
