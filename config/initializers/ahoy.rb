@@ -1,4 +1,6 @@
 class Ahoy::Store < Ahoy::DatabaseStore
+  mattr_accessor :auto_mount
+  self.auto_mount = false
 
   def geocode(data)
     super(data)
