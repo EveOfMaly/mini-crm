@@ -19,6 +19,7 @@ class Ahoy::Visit < ApplicationRecord
   #     visitor.pages << @app.pages.find(app_id)
   #   end
   # end
+  #
 
 
 end
