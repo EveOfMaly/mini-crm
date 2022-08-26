@@ -5,7 +5,7 @@ class VisitorsController < ApplicationController
 
     #display a list of all visitors on the app that belong to the instance of an app
     def index
-        @visitors = @app.visitors
+        @visitors = current_user.visits
     end
 
     def create 
@@ -41,7 +41,8 @@ class VisitorsController < ApplicationController
 
 
     def most_recent
-        @most_recent = Visitor.most_recent
+        @most_recent = current_user.visits.last(3)
+        # @most_recent = Visitor.most_recent
     end
 
 
@@ -54,7 +55,7 @@ class VisitorsController < ApplicationController
     end
 
     def set_visitors 
-        @visitor = @app.visitors.find(params[:id])
+        @visitor = current_user.visits.find(params[:id])
     end
     
     def visitor_params 

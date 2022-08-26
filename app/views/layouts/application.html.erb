@@ -26,7 +26,7 @@
         <div class="collapse show" id="home-collapse" style="">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><%= link_to "All Contacts", app_contacts_path(@app) %> <%= @app.contacts.count %></li>
-            <li><%= link_to "All Visitors", app_visitors_path(@app) %> <%= @app.visitors.count %> </li>
+            <li><%= link_to "All Visitors", app_visitors_path(@app) %> <%= current_user.visits.count %> </li>
             <%= link_to "Recent Visitors",  most_recent_path(@app)  %>
            
           </ul>
@@ -60,8 +60,7 @@
 
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    # <script src="ahoy.js"></script>
-   
+    
     <%= yield %>
 
   

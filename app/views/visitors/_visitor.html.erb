@@ -1,8 +1,14 @@
 <tr>
-        <td><%= link_to visitor.name, app_visitor_path(@app, visitor.id) %></td>
-        <td><%=  Ahoy::Event.where(visit_id: visitor.ahoy_visit_id).count %></td>
-        <td><%=   visitor.created_at %></td>
-        <td><%=    %></td>
-        <td><%=   %></td>
-        <td><%=  %></td>
+
+<td><%= link_to "Anon Visitor " + visitor.id.to_s, app_visitor_path(@app, visitor.id) %></td>
+        <td><%=  visitor.events.count %></td>
+        <td><%=  visitor.landing_page%></td>
+        <td><%=  visitor.started_at %></td>
+        <% if visitor.events.empty? %>
+        <p><td><%  "No Data"  %></td></p>
+            <% else %>
+            <td><%=  visitor.events.last.time  %></td>
+        <% end %>
+        <td><%=  visitor.region %></td>
+        <td><%=  visitor.city %></td>
 </tr>

@@ -20,6 +20,7 @@ class ContactsController < ApplicationController
     end
 
     def create 
+        
         @app = App.find(params[:app_id])
         @contact = Contact.new(contact_params)
 
@@ -35,15 +36,18 @@ class ContactsController < ApplicationController
 
     #show contact information
     def show 
+        
         @contact = Contact.find(params[:id])
     end
 
 
     def edit 
+        
         @contact = Contact.find_by(id: params[:id])
     end
 
     def update 
+        
         @contact = Contact.find_by(id: params[:id])
         @contact.update(contact_params)
         redirect_to app_contacts_path(@contact.app)
@@ -68,15 +72,14 @@ class ContactsController < ApplicationController
 
 
     def contact_created_from_page
-
-    
-
+        
         @app = App.find(params[:app_id])
         @contact = Contact.new(contact_params)
         @page = Page.find(params[:page_id])
     
         @contact.app = @app 
         @contact.name = ""
+        
         
         @contact.visitor_token = current_visit.visitor_token
         @contact.visitor_id = current_visit.id
@@ -89,16 +92,16 @@ class ContactsController < ApplicationController
 
     #identify if contact has any visitor activity 
     def identify 
-
+        
         #find contact 
         @contact = Contact.find_by(id: params[:id])
         @contacts = Contact.all
 
         
         # @contacts = Contact.all 
-        Visitor.all.select do |visitor|
+        current_user.visits.select do |visitor|
             
-            if @contact.visitor_id == visitor.ahoy_visit_id
+            if @contact.visitor_token == visitor.visitor_token
                 
                 @identity = Identity.new(visitor_id: visitor.id, contact_id: @contact.id)
                 

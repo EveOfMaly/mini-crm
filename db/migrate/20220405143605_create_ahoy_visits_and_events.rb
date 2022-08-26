@@ -10,6 +10,8 @@ class CreateAhoyVisitsAndEvents < ActiveRecord::Migration[6.1]
       # user
       t.references :user
   
+      # custom properties
+      t.string :name
 
       # standard
       t.string :ip
