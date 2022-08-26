@@ -109,10 +109,8 @@ class ContactsController < ApplicationController
                 @identity.save 
                 flash[:message] = "Visitor data found"
                 redirect_to controller: "contacts", action: 'activity', app_id: @app, contact: @contact
-                # redirect_to activity_path(@app, @contact)
             else
                 flash[:message] = "Contact has not visitor data"
-                # redirect_to app_contacts_path(@app, @contact)
             end
         end
     end
