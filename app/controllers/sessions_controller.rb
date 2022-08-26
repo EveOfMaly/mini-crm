@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
- 
+
+    # skip_before_action :track_ahoy_visit, only: [:login]
+
     #google oauth method 
     def omniauth 
         @user = User.from_omniauth(request.env['omniauth.auth'])
